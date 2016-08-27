@@ -1,0 +1,17 @@
+CXX = em++
+CXXFLAGS = -g  --preload-file res --use-preload-plugins -Iinclude -std=c++1y
+
+OBJS = src/CGame.o SDLVersion/CSDLRenderer.o SDLVersion/main.o
+
+
+TARGET = game.html
+
+$(TARGET):	$(OBJS)
+	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
+
+all:   $(TARGET)
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+	rm game.data
+	rm game.js	
