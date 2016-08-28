@@ -41,7 +41,7 @@ namespace odb {
 
 
 	snapshot.visited = {{
-	    {1, 1}, {3, 1}
+	
 	  }};
 	
         return snapshot;
