@@ -9,6 +9,7 @@ namespace odb {
         void tick( long ms );
         CControlCallback getKeyPressedCallback();
         CControlCallback getKeyReleasedCallback();
+        CGameSnapshot getGameSnapshot();
     };
 }
 #endif

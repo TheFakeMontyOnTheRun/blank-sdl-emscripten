@@ -7,7 +7,9 @@
 
 namespace odb {
     class CGameSnapshot {
-
+    public:
+        IntGameMap state;
+	std::vector< std::pair<int, int>> visited;
     };
 }
 

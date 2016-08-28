@@ -14,6 +14,9 @@ namespace odb {
         kFire2
     };
 
+    using MapLine = std::array<int, 20>;
+    using IntGameMap = std::array<MapLine, 20>;
+
     using CControlCallback = std::function< void(ECommand) >;
 }
 #endif //BLANKSLATE_COMMON_H
