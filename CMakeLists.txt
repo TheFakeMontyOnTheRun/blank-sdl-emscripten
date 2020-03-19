@@ -31,10 +31,7 @@ add_executable(game
 		base3d/src/FixP.c
 		base3d/src/CRenderer_Rasterization.c
 		base3d/src/CPackedFileReader.c
-		base3d/src/CRenderer_Tesselation.c
-		SoundSystem/NullMusic.c
-		menu/src/UI.c
-		SoundSystem/PCMAudio.c
+        menu/src/UI.c
 		)
 
 

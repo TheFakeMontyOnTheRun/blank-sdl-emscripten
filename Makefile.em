@@ -31,8 +31,6 @@ MENU_OBJ=menu/src/MainMenu.o \
 	base3d/src/FixP.o \
 	base3d/src/CRenderer_Rasterization.o \
 	base3d/src/CPackedFileReader.o \
-	base3d/src/CRenderer_Tesselation.o \
-	SoundSystem/NullMusic.o \
 	menu/src/HelpScreen.o \
 	menu/src/CreditsScreen.o
 

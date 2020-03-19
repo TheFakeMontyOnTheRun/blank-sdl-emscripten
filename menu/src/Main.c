@@ -2,15 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
-
 #include <stdint.h>
 #include <unistd.h>
 
-#endif
 
 #ifndef __DJGPP__
 const long UCLOCKS_PER_SEC = 1000;
@@ -31,7 +25,6 @@ long uclock() {
 #include "Engine.h"
 #include "CRenderer.h"
 #include "CPackedFileReader.h"
-#include "SoundSystem.h"
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten/html5.h>
@@ -129,16 +122,8 @@ void enterState(enum EGameMenuState newState) {
 	initialPaintCallback();
 }
 
-enum ESoundDriver soundDriver = kNoSound;
-
-void soundTick();
-
 void initHW() {
-#ifndef CD32
 	initFileReader("base.pfs");
-#else
-	initFileReader("datacd32.pfs");
-#endif
 	graphicsInit();
 }
 
@@ -154,19 +139,6 @@ void mainLoop() {
 	int32_t newState;
 
 	handleSystemEvents();
-
-	if (soundDriver != kNoSound) {
-		soundTick();
-	}
-
-#ifdef AMIGA
-#ifdef AGA8BPP
-		delta_time = 50;
-#else
-		delta_time = 1000;
-#endif
-
-#else
 	now = (end_clock - start_clock) / (UCLOCKS_PER_SEC / 1000);
 	delta_time = now - prev;
 	prev = now;
@@ -175,7 +147,6 @@ void mainLoop() {
 	if (delta_time <= 0) {
 		delta_time = 1;
 	}
-#endif
 	input = getInput();
 
 #ifdef ANDROID
@@ -193,7 +164,6 @@ void mainLoop() {
 	}
 
 	if (newState != currentGameMenuState && newState != -1) {
-		playSound(STATE_CHANGE_SOUND);
 		enterState(newState);
 	}
 

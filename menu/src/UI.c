@@ -1,15 +1,8 @@
 /*
 * Created by Daniel Monteiro on 2019-08-02.
 */
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
-
 #include <stdint.h>
 #include <unistd.h>
-
-#endif
-
 #include <stdio.h>
 #include <string.h>
 

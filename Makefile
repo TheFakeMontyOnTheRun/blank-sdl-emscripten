@@ -123,60 +123,6 @@ game/fast:
 	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
 .PHONY : game/fast
 
-SoundSystem/NullMusic.o: SoundSystem/NullMusic.c.o
-
-.PHONY : SoundSystem/NullMusic.o
-
-# target to build an object file
-SoundSystem/NullMusic.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/SoundSystem/NullMusic.c.o
-.PHONY : SoundSystem/NullMusic.c.o
-
-SoundSystem/NullMusic.i: SoundSystem/NullMusic.c.i
-
-.PHONY : SoundSystem/NullMusic.i
-
-# target to preprocess a source file
-SoundSystem/NullMusic.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/SoundSystem/NullMusic.c.i
-.PHONY : SoundSystem/NullMusic.c.i
-
-SoundSystem/NullMusic.s: SoundSystem/NullMusic.c.s
-
-.PHONY : SoundSystem/NullMusic.s
-
-# target to generate assembly for a file
-SoundSystem/NullMusic.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/SoundSystem/NullMusic.c.s
-.PHONY : SoundSystem/NullMusic.c.s
-
-SoundSystem/PCMAudio.o: SoundSystem/PCMAudio.c.o
-
-.PHONY : SoundSystem/PCMAudio.o
-
-# target to build an object file
-SoundSystem/PCMAudio.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/SoundSystem/PCMAudio.c.o
-.PHONY : SoundSystem/PCMAudio.c.o
-
-SoundSystem/PCMAudio.i: SoundSystem/PCMAudio.c.i
-
-.PHONY : SoundSystem/PCMAudio.i
-
-# target to preprocess a source file
-SoundSystem/PCMAudio.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/SoundSystem/PCMAudio.c.i
-.PHONY : SoundSystem/PCMAudio.c.i
-
-SoundSystem/PCMAudio.s: SoundSystem/PCMAudio.c.s
-
-.PHONY : SoundSystem/PCMAudio.s
-
-# target to generate assembly for a file
-SoundSystem/PCMAudio.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/SoundSystem/PCMAudio.c.s
-.PHONY : SoundSystem/PCMAudio.c.s
-
 base3d/src/CPackedFileReader.o: base3d/src/CPackedFileReader.c.o
 
 .PHONY : base3d/src/CPackedFileReader.o
@@ -257,33 +203,6 @@ base3d/src/CRenderer_Rasterization.s: base3d/src/CRenderer_Rasterization.c.s
 base3d/src/CRenderer_Rasterization.c.s:
 	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Rasterization.c.s
 .PHONY : base3d/src/CRenderer_Rasterization.c.s
-
-base3d/src/CRenderer_Tesselation.o: base3d/src/CRenderer_Tesselation.c.o
-
-.PHONY : base3d/src/CRenderer_Tesselation.o
-
-# target to build an object file
-base3d/src/CRenderer_Tesselation.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Tesselation.c.o
-.PHONY : base3d/src/CRenderer_Tesselation.c.o
-
-base3d/src/CRenderer_Tesselation.i: base3d/src/CRenderer_Tesselation.c.i
-
-.PHONY : base3d/src/CRenderer_Tesselation.i
-
-# target to preprocess a source file
-base3d/src/CRenderer_Tesselation.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Tesselation.c.i
-.PHONY : base3d/src/CRenderer_Tesselation.c.i
-
-base3d/src/CRenderer_Tesselation.s: base3d/src/CRenderer_Tesselation.c.s
-
-.PHONY : base3d/src/CRenderer_Tesselation.s
-
-# target to generate assembly for a file
-base3d/src/CRenderer_Tesselation.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Tesselation.c.s
-.PHONY : base3d/src/CRenderer_Tesselation.c.s
 
 base3d/src/FixP.o: base3d/src/FixP.c.o
 
@@ -564,12 +483,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... game"
-	@echo "... SoundSystem/NullMusic.o"
-	@echo "... SoundSystem/NullMusic.i"
-	@echo "... SoundSystem/NullMusic.s"
-	@echo "... SoundSystem/PCMAudio.o"
-	@echo "... SoundSystem/PCMAudio.i"
-	@echo "... SoundSystem/PCMAudio.s"
 	@echo "... base3d/src/CPackedFileReader.o"
 	@echo "... base3d/src/CPackedFileReader.i"
 	@echo "... base3d/src/CPackedFileReader.s"
@@ -579,9 +492,6 @@ help:
 	@echo "... base3d/src/CRenderer_Rasterization.o"
 	@echo "... base3d/src/CRenderer_Rasterization.i"
 	@echo "... base3d/src/CRenderer_Rasterization.s"
-	@echo "... base3d/src/CRenderer_Tesselation.o"
-	@echo "... base3d/src/CRenderer_Tesselation.i"
-	@echo "... base3d/src/CRenderer_Tesselation.s"
 	@echo "... base3d/src/FixP.o"
 	@echo "... base3d/src/FixP.i"
 	@echo "... base3d/src/FixP.s"

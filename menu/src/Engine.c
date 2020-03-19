@@ -2,15 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
-
 #include <stdint.h>
 #include <unistd.h>
-
-#endif
 
 #include "SpyTravel.h"
 #include "FixP.h"

@@ -12,9 +12,6 @@ data:	packager
 images:
 	python ./make_package.py
 
-maps:
-	python ./compile_map.py
-
-full: images maps data
+full: images data
 
 default: full

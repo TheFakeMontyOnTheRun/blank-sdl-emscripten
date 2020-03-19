@@ -3,20 +3,12 @@
 #include <string.h>
 #include <assert.h>
 #include <errno.h>
-
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
-
 #include <stdint.h>
 #include <unistd.h>
 
-#endif
-
+#ifndef ANDROID
 #include "Common.h"
-
-
-#ifdef ANDROID
+#else
 #include <jni.h>
 #include <android/asset_manager.h>
 #include <android/asset_manager_jni.h>

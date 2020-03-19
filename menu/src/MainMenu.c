@@ -1,13 +1,6 @@
 #include <string.h>
-
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
 #include <stdint.h>
 #include <unistd.h>
-
-
-#endif
 
 #include "FixP.h"
 #include "Enums.h"
@@ -16,7 +9,6 @@
 #include "Engine.h"
 #include "CRenderer.h"
 #include "UI.h"
-#include "SoundSystem.h"
 
 #if !defined(ANDROID) && !defined(__EMSCRIPTEN__)
 const char *MainMenu_options[4] = {
@@ -159,7 +151,6 @@ int32_t MainMenu_tickCallback(int32_t tag, void *data) {
 
 		switch (tag) {
 			case kCommandUp:
-				playSound(MENU_SELECTION_CHANGE_SOUND);
 				cursorPosition = cursorPosition - 1;
 
 				if (cursorPosition > (kMainMenuOptionsCount - 1)) {
@@ -167,7 +158,6 @@ int32_t MainMenu_tickCallback(int32_t tag, void *data) {
 				}
 				break;
 			case kCommandDown:
-				playSound(MENU_SELECTION_CHANGE_SOUND);
 				cursorPosition =
 						(uint8_t) ((cursorPosition + 1) % kMainMenuOptionsCount);
 				break;

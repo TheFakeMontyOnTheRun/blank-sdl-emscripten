@@ -36,7 +36,6 @@ add_library( # Sets the name of the library.
         ../../../../../base3d/src/FixP.c
         ../../../../../base3d/src/CRenderer_Rasterization.c
         ../../../../../base3d/src/CPackedFileReader.c
-        ../../../../../base3d/src/CRenderer_Tesselation.c
         ../../../../../menu/src/UI.c
         ../../../../../SoundSystem/PCMAudio.c
         native-lib.c)

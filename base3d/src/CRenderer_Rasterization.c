@@ -1,14 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
-
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
-
 #include <stdint.h>
 #include <unistd.h>
-
-#endif
 
 #include "FixP.h"
 #include "Enums.h"

@@ -22,11 +22,6 @@
 #include "LoadBitmap.h"
 #include "CRenderer.h"
 
-typedef int ESoundDriver;
-
-extern ESoundDriver soundDriver;
-
-
 enum EColor {
 	COLOR_BLACK,
 	COLOR_BLUE,
@@ -57,92 +52,6 @@ void graphicsShutdown() {
 			"licenses:\nhttps://bitbucket.org/MontyOnTheRun/the-mistral-report\n\n");
 }
 
-void putStr(int x, int y, const char *str, int fg, int bg) {
-	int col = x;
-	int row = y;
-	int currAttrib = (bg << 4) | fg;
-	size_t len = strlen(str);
-
-	for (int ch = 0; ch < len; ++ch) {
-		char c = str[ch];
-		++col;
-		_farpokeb(_dos_ds, 0xB800 * 16 + ((80 * row * 2) + (col * 2)), c);
-		_farpokeb(_dos_ds, 0xB800 * 16 + ((80 * row * 2) + (col * 2)) + 1,
-				  currAttrib);
-	}
-}
-
-void drawTitleBox() {
-
-	putStr(1, 2, "\xc9", COLOR_WHITE, COLOR_BLUE);
-
-	for (int c = 0; c < 75; ++c) {
-		putStr(c + 2, 2, "\xcd", COLOR_WHITE, COLOR_BLUE);
-	}
-	putStr(76, 2, "\xbb", COLOR_WHITE, COLOR_BLUE);
-
-	for (int d = 3; d < 10; ++d) {
-		putStr(1, d, "\xba", COLOR_WHITE, COLOR_BLUE);
-
-		for (int c = 0; c < 75; ++c) {
-
-			putStr(c + 2, d, " ", COLOR_WHITE, COLOR_BLUE);
-		}
-		putStr(76, d, "\xba", COLOR_WHITE, COLOR_BLUE);
-	}
-
-	putStr(1, 10, "\xc8", COLOR_WHITE, COLOR_BLUE);
-
-	for (int c = 0; c < 75; ++c) {
-		putStr(c + 2, 10, "\xcd", COLOR_WHITE, COLOR_BLUE);
-	}
-	putStr(76, 10, "\xbc", COLOR_WHITE, COLOR_BLUE);
-
-	putStr(17, 4, "The Mistral Report - Invisible Affairs - v1.1", COLOR_WHITE,
-		   COLOR_BLUE);
-
-	putStr(5, 6, "Program and Audio-visual (C) 2018-2019 by Brotherhood of 13h",
-		   COLOR_WHITE, COLOR_BLUE);
-
-	putStr(30, 7, "Licensed under GPLv3 ", COLOR_WHITE, COLOR_BLUE);
-}
-
-void querySoundDriver() {
-	putStr(30, 14, "Select Sound Driver:", COLOR_YELLOW, COLOR_BLACK);
-	putStr(27, 16, "1) IBM Sound", COLOR_YELLOW, COLOR_BLACK);
-	putStr(27, 17, "2) Ad lib Sound Board", COLOR_YELLOW, COLOR_BLACK);
-	putStr(27, 18, "3) OPL2LPT on LPT1", COLOR_YELLOW, COLOR_BLACK);
-	putStr(27, 19, "4) No Sound", COLOR_YELLOW, COLOR_BLACK);
-	int option = -1;
-
-	while (option == -1) {
-
-		gotoxy(53, 15);
-		option = getch();
-
-		switch (option) {
-			case '1':
-				/*				soundDriver = ESoundDriver::kPcSpeaker; */
-				soundDriver = kPcSpeaker;
-				return;
-			case '2':
-				/*				soundDriver = ESoundDriver::kAdlib; */
-				soundDriver = kAdlib;
-				setupOPL2(0x0388);
-				return;
-			case '3':
-				/*				soundDriver = ESoundDriver::kOpl2Lpt; */
-				soundDriver = kOpl2Lpt;
-				setupOPL2(-1);
-				return;
-			case '4':
-				return;
-			default:
-				option = -1;
-		}
-	}
-}
-
 uint8_t getPaletteEntry(uint32_t origin) {
 	uint8_t shade;
 
@@ -161,8 +70,6 @@ uint8_t getPaletteEntry(uint32_t origin) {
 void graphicsInit() {
 	textmode(C80);
 	clrscr();
-	drawTitleBox();
-	querySoundDriver();
 
 	__dpmi_regs reg;
 

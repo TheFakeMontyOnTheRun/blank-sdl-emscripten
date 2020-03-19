@@ -1,19 +1,14 @@
 /*
  Created by Daniel Monteiro on 03/10/2019.
 */
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
 #include <stdint.h>
 #include <unistd.h>
-#endif
 
 #include "Common.h"
 #include "Globals.h"
 #include "Enums.h"
 #include "Engine.h"
 
-int shouldDrawLights = TRUE;
 struct Bitmap *currentBackgroundBitmap = NULL;
 int32_t currentGameMenuState = -1;
 int32_t menuStateToReturn = -1;

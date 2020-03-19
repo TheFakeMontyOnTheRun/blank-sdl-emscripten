@@ -78,15 +78,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/SoundSystem/NullMusic.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/SoundSystem/PCMAudio.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/SoundSystem/PCMAudio.h">
-			<Option target="game"/>
-		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/CPackedFileReader.c">
 			<Option target="game"/>
 		</Unit>
@@ -99,18 +90,6 @@
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/CRenderer_Tesselation.c">
 			<Option target="game"/>
 		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/CTile3DProperties.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/Dungeon.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/EDirection_Utils.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/Events.c">
-			<Option target="game"/>
-		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/FixP.c">
 			<Option target="game"/>
 		</Unit>
@@ -120,25 +99,10 @@
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/LoadBitmap.c">
 			<Option target="game"/>
 		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/MapWithCharKey.c">
-			<Option target="game"/>
-		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/SDLVersion/CSDL2Renderer.c">
 			<Option target="game"/>
 		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/Vec.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/VisibilityStrategy.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/Crawler.c">
-			<Option target="game"/>
-		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/CreditsScreen.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/GameMenu.c">
 			<Option target="game"/>
 		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/HelpScreen.c">
@@ -151,9 +115,6 @@
 			<Option target="game"/>
 		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/MainMenu.c">
-			<Option target="game"/>
-		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/SpyTravel.c">
 			<Option target="game"/>
 		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/menu/src/UI.c">

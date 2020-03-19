@@ -20,7 +20,6 @@
 #include <string.h>
 #include <math.h>
 #include "AmigaInt.h"
-#include "SoundSystem.h"
 #include "Enums.h"
 #include "FixP.h"
 #include "Common.h"
@@ -34,6 +33,15 @@
 #define REG(xn, parm) parm __asm(#xn)
 #define REGARGS __regargs
 
+#ifdef AGA5BPP
+extern void REGARGS c2p1x1_4_c5_bm(
+REG(d0, UWORD chunky_x),
+REG(d1, UWORD chunky_y),
+REG(d2, UWORD offset_x),
+REG(d3, UWORD offset_y),
+REG(a0, UBYTE *chunky_buffer),
+REG(a1, struct BitMap *bitmap));
+#else
 extern void REGARGS c2p1x1_8_c5_bm(
 REG(d0, UWORD chunky_x),
 REG(d1, UWORD chunky_y),
@@ -41,6 +49,7 @@ REG(d2, UWORD offset_x),
 REG(d3, UWORD offset_y),
 REG(a0, UBYTE *chunky_buffer),
 REG(a1, struct BitMap *bitmap));
+#endif
 
 struct IntuitionBase *IntuitionBase;
 struct GfxBase *GfxBase;
@@ -55,7 +64,7 @@ struct NewScreen xnewscreen = {
 	0,			  /* TopEdge   */
 	320,		  /* Width     */
 	200,		  /* Height    */
-	5,			  /* Depth   */
+	4,			  /* Depth   */
 	0,			  /* DetailPen */
 	1,			  /* BlockPen */
 	0,			  /* ViewModes High-resolution, Interlaced */
@@ -107,13 +116,6 @@ struct NewScreen xnewscreen = {
 			CUSTOMSCREEN                      /* Type */
 	};
 
-void openCOM() {}
-
-uint8_t readByte() {
-	return kCommandNone;
-}
-
-void writeByte(uint8_t command) {}
 
 long frame = 0;
 
@@ -122,14 +124,6 @@ void graphicsShutdown() {
 	CloseWindow(my_window);
 	CloseScreen(screen);
 	CloseLibrary((struct Library *) IntuitionBase);
-}
-
-void putStr(int x, int y, const char *str, int fg, int bg) {}
-
-void drawTitleBox() {}
-
-void querySoundDriver() {
-	setupOPL2(0x0388);
 }
 
 struct RGB8 {
@@ -196,8 +190,6 @@ void graphicsInit() {
 	int IsV36 = FALSE;
 	int IsPAL;
 
-	drawTitleBox();
-
 	IntuitionBase =
 			(struct IntuitionBase *) OpenLibrary("intuition.library", 0);
 
@@ -236,22 +228,6 @@ void graphicsInit() {
 	SetRGB4 ( &screen->ViewPort, 13, 0, 192, 64 );
 	SetRGB4 ( &screen->ViewPort, 14, 0, 192, 128 );
 	SetRGB4 ( &screen->ViewPort, 15, 0, 192, 192 );
-	SetRGB4 ( &screen->ViewPort, 16, 128, 0, 0 );
-	SetRGB4 ( &screen->ViewPort, 17, 128, 0, 64 );
-	SetRGB4 ( &screen->ViewPort, 18, 128, 0, 128 );
-	SetRGB4 ( &screen->ViewPort, 19, 128, 0, 192 );
-	SetRGB4 ( &screen->ViewPort, 20, 128, 64, 0 );
-	SetRGB4 ( &screen->ViewPort, 21, 128, 64, 64 );
-	SetRGB4 ( &screen->ViewPort, 22, 128, 64, 128 );
-	SetRGB4 ( &screen->ViewPort, 23, 128, 64, 192 );
-	SetRGB4 ( &screen->ViewPort, 24, 128, 128, 0 );
-	SetRGB4 ( &screen->ViewPort, 25, 128, 128, 64 );
-	SetRGB4 ( &screen->ViewPort, 26, 128, 128, 128 );
-	SetRGB4 ( &screen->ViewPort, 27, 128, 128, 192 );
-	SetRGB4 ( &screen->ViewPort, 28, 128, 192, 0 );
-	SetRGB4 ( &screen->ViewPort, 29, 128, 192, 64 );
-	SetRGB4 ( &screen->ViewPort, 30, 128, 192, 128 );
-	SetRGB4 ( &screen->ViewPort, 31, 128, 192, 192 );
 #else
 	for (r = 0; r < 256; r += 16) {
 		for (g = 0; g < 256; g += 8) {
@@ -273,7 +249,6 @@ void graphicsInit() {
 
 	SetPointer (my_window, emptypointer, 1, 16, 0, 0);
 
-	querySoundDriver();
 	defaultFont = loadBitmap("font.img");
 }
 
@@ -422,13 +397,14 @@ void handleSystemEvents() {
 
 void flipRenderer() {
 #ifdef AGA8BPP
-	OwnBlitter();
+    OwnBlitter();
 	WaitBlit();
 	c2p1x1_8_c5_bm(320,200,0,0,&framebuffer[0], my_window->RPort->BitMap);
 	DisownBlitter();
 #else
-	WriteChunkyPixels(my_window->RPort, 0, 0, 319, 199, &framebuffer[0], 320);
+    OwnBlitter();
+    WaitBlit();
+    c2p1x1_4_c5_bm(320,200,0,0,&framebuffer[0], my_window->RPort->BitMap);
+    DisownBlitter();
 #endif
 }
-
-void clear() {}

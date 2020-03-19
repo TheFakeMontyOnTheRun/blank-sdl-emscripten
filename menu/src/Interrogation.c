@@ -3,15 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
-
-#ifdef AMIGA
-#include "AmigaInt.h"
-#else
-
 #include <stdint.h>
 #include <unistd.h>
-
-#endif
 
 #include "FixP.h"
 #include "LoadBitmap.h"
@@ -23,7 +16,6 @@
 #include "Engine.h"
 #include "CRenderer.h"
 #include "CPackedFileReader.h"
-#include "SoundSystem.h"
 
 #define kMazeSideSize 8
 
@@ -356,7 +348,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 			&& interrogationPosition.y == interrogationTargetSpot.y) {
 
 			timeUntilNextState = MENU_ITEM_TIME_TO_BECOME_ACTIVE_MS;
-			playSound(INFORMATION_ACQUIRED_SOUND);
 			currentPresentationState = kConfirmInputBlink1;
 
 			nextNavigationSelection = kMainMenu;
@@ -385,7 +376,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 
 				if (!emotionAmount[0] || !emotionAmount[2]) {
 					noMoreMoves = TRUE;
-					playSound(FAILED_TO_GET_INFORMATION_SOUND);
 					return -1;
 				}
 
@@ -398,7 +388,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 					== 1) {
 					return -1;
 				}
-				playSound(MENU_SELECTION_CHANGE_SOUND);
 				interrogationPosition.y--;
 
 				if (!interrogationReveal[interrogationPosition.y]
@@ -413,7 +402,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 			case kCommandDown:
 				if (!emotionAmount[1] || !emotionAmount[3]) {
 					noMoreMoves = TRUE;
-					playSound(FAILED_TO_GET_INFORMATION_SOUND);
 					return -1;
 				}
 
@@ -427,7 +415,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 					return -1;
 				}
 
-				playSound(MENU_SELECTION_CHANGE_SOUND);
 				interrogationPosition.y++;
 
 				if (!interrogationReveal[interrogationPosition.y]
@@ -441,7 +428,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 			case kCommandLeft:
 				if (!emotionAmount[1] || !emotionAmount[0]) {
 					noMoreMoves = TRUE;
-					playSound(FAILED_TO_GET_INFORMATION_SOUND);
 					return -1;
 				}
 
@@ -455,7 +441,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 					return -1;
 				}
 
-				playSound(MENU_SELECTION_CHANGE_SOUND);
 				interrogationPosition.x--;
 
 				if (!interrogationReveal[interrogationPosition.y]
@@ -468,7 +453,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 			case kCommandRight:
 				if (!emotionAmount[2] || !emotionAmount[3]) {
 					noMoreMoves = TRUE;
-					playSound(FAILED_TO_GET_INFORMATION_SOUND);
 					return -1;
 				}
 
@@ -482,7 +466,6 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 					return -1;
 				}
 
-				playSound(MENU_SELECTION_CHANGE_SOUND);
 				interrogationPosition.x++;
 
 				if (!interrogationReveal[interrogationPosition.y]
