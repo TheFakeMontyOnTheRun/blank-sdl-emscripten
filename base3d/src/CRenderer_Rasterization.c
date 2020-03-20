@@ -86,22 +86,39 @@ void drawBitmap(const int16_t dx,
 	if ( (dy + height ) >= 200 ) {
 		height = ( 200 - dy );
 	}
-	for (y = 0; y < height; ++y) {
-		uint8_t *destinationLineStart = destination + (320 * (dy + y)) + dx;
-		uint8_t *sourceLineStart = sourceLine + (width * y);
-		size_t x;
 
-		for (x = 0; x < width; ++x) {
-			uint8_t pixel = *sourceLineStart;
 
-			if (!transparent || (pixel != mTransparency)) {
-				*destinationLineStart = pixel;
+	if (transparent) {
+		for (y = 0; y < height; ++y) {
+			uint8_t *destinationLineStart = destination + (320 * (dy + y)) + dx;
+			uint8_t *sourceLineStart = sourceLine + (width * y);
+			size_t x;
+
+			for (x = 0; x < width; ++x) {
+				uint8_t pixel = *sourceLineStart;
+
+				if (!transparent || (pixel != mTransparency)) {
+					*destinationLineStart = pixel;
+				}
+
+				++sourceLineStart;
+				++destinationLineStart;
 			}
+		}
+	} else {
+		for (y = 0; y < height; ++y) {
+			uint8_t *destinationLineStart = destination + (320 * (dy + y)) + dx;
+			uint8_t *sourceLineStart = sourceLine + (width * y);
+			size_t x;
 
-			++sourceLineStart;
-			++destinationLineStart;
+			for (x = 0; x < width; ++x) {
+				*destinationLineStart = *sourceLineStart;
+				++sourceLineStart;
+				++destinationLineStart;
+			}
 		}
 	}
+
 }
 
 void drawRepeatBitmap(

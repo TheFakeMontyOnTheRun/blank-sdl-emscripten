@@ -62,7 +62,6 @@ struct Bitmap *loadBitmap(const char *__restrict__ filename) {
 
 	toReturn->data = (uint8_t *) calloc(1, size);
 
-#ifndef AGA5BPP
 	for ( c = 0; c < sizeInDisk; c += 2 ) {
 	  pixel = buffer[ c ];
 	  repetitions = buffer[ c + 1 ];
@@ -71,23 +70,7 @@ struct Bitmap *loadBitmap(const char *__restrict__ filename) {
 	  	toReturn->data[ pixelIndex++ ] = pixel;
 	  }
 	}
-#else
-	for ( c = 0; c < sizeInDisk; c += 2 ) {
-	  pixel = buffer[ c ];
-	  repetitions = buffer[ c + 1 ];
-		uint8_t r	  = ( pixel & 192 ) >> 6;
-		uint8_t g	  = ( pixel & 56 ) >> 3;
-		uint8_t b	  = ( pixel & 7 );
 
-	  for ( d = 0; d < repetitions; ++d ) {
-	  	if ( pixel == 199 ) {
-			toReturn->data[ pixelIndex++ ] = 199;
-		} else {
-			toReturn->data[ pixelIndex++ ] = ( ( ( r >> 1 ) << 4 ) ) + ( ( g >> 1 ) << 2 ) + ( b >> 1 );
-		}
-	  }
-	}
-#endif
 	free(buffer);
 
 	fclose(src);
