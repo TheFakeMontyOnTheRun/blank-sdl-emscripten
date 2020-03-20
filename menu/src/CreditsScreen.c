@@ -25,7 +25,6 @@ int16_t CreditsScreen_optionsCount = 1;
 extern char textBuffer[40 * 25];
 struct Bitmap *monty;
 struct Bitmap *belle;
-struct Bitmap *stdmatt;
 
 int32_t CreditsScreen_initStateCallback(int32_t tag, void *data) {
 	size_t fileSize = sizeOfFile("Credits.txt");
@@ -48,8 +47,6 @@ int32_t CreditsScreen_initStateCallback(int32_t tag, void *data) {
 	monty = loadBitmap("monty.img");
 
 	belle = loadBitmap("belle.img");
-
-	stdmatt = loadBitmap("stdmatt.img");
 
 	return 0;
 }
@@ -87,9 +84,6 @@ void CreditsScreen_repaintCallback(void) {
 		drawRect(8 + lerping32, 128 + lerping32, lerpoSixtyFooooooouuuuuuur,
 				 lerpoSixtyFooooooouuuuuuur, 0);
 
-		drawRect(80 + lerping32, 128 + lerping32, lerpoSixtyFooooooouuuuuuur,
-				 lerpoSixtyFooooooouuuuuuur, 0);
-
 		drawRect(152 + lerping32, 128 + lerping32, lerpoSixtyFooooooouuuuuuur,
 				 lerpoSixtyFooooooouuuuuuur, 0);
 
@@ -103,7 +97,6 @@ void CreditsScreen_repaintCallback(void) {
 
 	fill(0, (lines + 3) * 8, 320, 8, 0, TRUE);
 	fill(8 + 8, 128 + 8, 64, 64, 0, TRUE);
-	fill(80 + 8, 128 + 8, 64, 64, 0, TRUE);
 	fill(152 + 8, 128 + 8, 64, 64, 0, TRUE);
 
 	if (mainText != NULL) {
@@ -122,13 +115,6 @@ void CreditsScreen_repaintCallback(void) {
 
 	fill(8, 128, 64, 8, 0, FALSE);
 	drawTextAt(3, 17, "Monty", 255);
-
-	fill(80, 128, 64, 64, 255, FALSE);
-	drawBitmap(80, 128, stdmatt, TRUE);
-	drawRect(80, 128, 64, 64, 0);
-
-	fill(80, 128, 64, 8, 0, FALSE);
-	drawTextAt(12, 17, "StdMatt", 255);
 
 	fill(152, 128, 64, 64, 255, FALSE);
 	drawBitmap(152, 128, belle, TRUE);
@@ -237,10 +223,8 @@ void CreditsScreen_unloadStateCallback() {
 
 		releaseBitmap(monty);
 		releaseBitmap(belle);
-		releaseBitmap(stdmatt);
 
 		monty = NULL;
 		belle = NULL;
-		stdmatt = NULL;
 	}
 }
