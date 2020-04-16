@@ -1,7 +1,7 @@
 CC = emcc
 CXX = em++
 
-LDFLAGS =  -O3 -s USE_ZLIB=1 -s USE_LIBPNG=1 -s USE_SDL=1 -s --preload-file ./base.pfs --use-preload-plugins
+LDFLAGS =  -O3 -s USE_ZLIB=1 -s DISABLE_DEPRECATED_FIND_EVENT_TARGET_BEHAVIOR=0 -s USE_LIBPNG=1 -s USE_SDL=1 -s --preload-file ./base.pfs --use-preload-plugins
 
 CFLAGS=-g -c -O3 -std=c90    \
 	-Ibase3d/include                                     \
