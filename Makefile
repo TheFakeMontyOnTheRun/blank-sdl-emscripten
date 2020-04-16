@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.16.3/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named game
+# Target rules for targets named blank
 
 # Build rule for target.
-game: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 game
-.PHONY : game
+blank: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 blank
+.PHONY : blank
 
 # fast build rule for target.
-game/fast:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
-.PHONY : game/fast
+blank/fast:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/build
+.PHONY : blank/fast
 
 base3d/src/CPackedFileReader.o: base3d/src/CPackedFileReader.c.o
 
@@ -129,7 +129,7 @@ base3d/src/CPackedFileReader.o: base3d/src/CPackedFileReader.c.o
 
 # target to build an object file
 base3d/src/CPackedFileReader.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CPackedFileReader.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.c.o
 .PHONY : base3d/src/CPackedFileReader.c.o
 
 base3d/src/CPackedFileReader.i: base3d/src/CPackedFileReader.c.i
@@ -138,7 +138,7 @@ base3d/src/CPackedFileReader.i: base3d/src/CPackedFileReader.c.i
 
 # target to preprocess a source file
 base3d/src/CPackedFileReader.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CPackedFileReader.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.c.i
 .PHONY : base3d/src/CPackedFileReader.c.i
 
 base3d/src/CPackedFileReader.s: base3d/src/CPackedFileReader.c.s
@@ -147,7 +147,7 @@ base3d/src/CPackedFileReader.s: base3d/src/CPackedFileReader.c.s
 
 # target to generate assembly for a file
 base3d/src/CPackedFileReader.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CPackedFileReader.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.c.s
 .PHONY : base3d/src/CPackedFileReader.c.s
 
 base3d/src/CRenderer.o: base3d/src/CRenderer.c.o
@@ -156,7 +156,7 @@ base3d/src/CRenderer.o: base3d/src/CRenderer.c.o
 
 # target to build an object file
 base3d/src/CRenderer.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.c.o
 .PHONY : base3d/src/CRenderer.c.o
 
 base3d/src/CRenderer.i: base3d/src/CRenderer.c.i
@@ -165,7 +165,7 @@ base3d/src/CRenderer.i: base3d/src/CRenderer.c.i
 
 # target to preprocess a source file
 base3d/src/CRenderer.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.c.i
 .PHONY : base3d/src/CRenderer.c.i
 
 base3d/src/CRenderer.s: base3d/src/CRenderer.c.s
@@ -174,7 +174,7 @@ base3d/src/CRenderer.s: base3d/src/CRenderer.c.s
 
 # target to generate assembly for a file
 base3d/src/CRenderer.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.c.s
 .PHONY : base3d/src/CRenderer.c.s
 
 base3d/src/CRenderer_Rasterization.o: base3d/src/CRenderer_Rasterization.c.o
@@ -183,7 +183,7 @@ base3d/src/CRenderer_Rasterization.o: base3d/src/CRenderer_Rasterization.c.o
 
 # target to build an object file
 base3d/src/CRenderer_Rasterization.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Rasterization.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.c.o
 .PHONY : base3d/src/CRenderer_Rasterization.c.o
 
 base3d/src/CRenderer_Rasterization.i: base3d/src/CRenderer_Rasterization.c.i
@@ -192,7 +192,7 @@ base3d/src/CRenderer_Rasterization.i: base3d/src/CRenderer_Rasterization.c.i
 
 # target to preprocess a source file
 base3d/src/CRenderer_Rasterization.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Rasterization.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.c.i
 .PHONY : base3d/src/CRenderer_Rasterization.c.i
 
 base3d/src/CRenderer_Rasterization.s: base3d/src/CRenderer_Rasterization.c.s
@@ -201,7 +201,7 @@ base3d/src/CRenderer_Rasterization.s: base3d/src/CRenderer_Rasterization.c.s
 
 # target to generate assembly for a file
 base3d/src/CRenderer_Rasterization.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/CRenderer_Rasterization.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.c.s
 .PHONY : base3d/src/CRenderer_Rasterization.c.s
 
 base3d/src/FixP.o: base3d/src/FixP.c.o
@@ -210,7 +210,7 @@ base3d/src/FixP.o: base3d/src/FixP.c.o
 
 # target to build an object file
 base3d/src/FixP.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/FixP.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.c.o
 .PHONY : base3d/src/FixP.c.o
 
 base3d/src/FixP.i: base3d/src/FixP.c.i
@@ -219,7 +219,7 @@ base3d/src/FixP.i: base3d/src/FixP.c.i
 
 # target to preprocess a source file
 base3d/src/FixP.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/FixP.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.c.i
 .PHONY : base3d/src/FixP.c.i
 
 base3d/src/FixP.s: base3d/src/FixP.c.s
@@ -228,7 +228,7 @@ base3d/src/FixP.s: base3d/src/FixP.c.s
 
 # target to generate assembly for a file
 base3d/src/FixP.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/FixP.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.c.s
 .PHONY : base3d/src/FixP.c.s
 
 base3d/src/Globals.o: base3d/src/Globals.c.o
@@ -237,7 +237,7 @@ base3d/src/Globals.o: base3d/src/Globals.c.o
 
 # target to build an object file
 base3d/src/Globals.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/Globals.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.c.o
 .PHONY : base3d/src/Globals.c.o
 
 base3d/src/Globals.i: base3d/src/Globals.c.i
@@ -246,7 +246,7 @@ base3d/src/Globals.i: base3d/src/Globals.c.i
 
 # target to preprocess a source file
 base3d/src/Globals.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/Globals.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.c.i
 .PHONY : base3d/src/Globals.c.i
 
 base3d/src/Globals.s: base3d/src/Globals.c.s
@@ -255,7 +255,7 @@ base3d/src/Globals.s: base3d/src/Globals.c.s
 
 # target to generate assembly for a file
 base3d/src/Globals.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/Globals.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.c.s
 .PHONY : base3d/src/Globals.c.s
 
 base3d/src/LoadBitmap.o: base3d/src/LoadBitmap.c.o
@@ -264,7 +264,7 @@ base3d/src/LoadBitmap.o: base3d/src/LoadBitmap.c.o
 
 # target to build an object file
 base3d/src/LoadBitmap.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/LoadBitmap.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.c.o
 .PHONY : base3d/src/LoadBitmap.c.o
 
 base3d/src/LoadBitmap.i: base3d/src/LoadBitmap.c.i
@@ -273,7 +273,7 @@ base3d/src/LoadBitmap.i: base3d/src/LoadBitmap.c.i
 
 # target to preprocess a source file
 base3d/src/LoadBitmap.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/LoadBitmap.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.c.i
 .PHONY : base3d/src/LoadBitmap.c.i
 
 base3d/src/LoadBitmap.s: base3d/src/LoadBitmap.c.s
@@ -282,7 +282,7 @@ base3d/src/LoadBitmap.s: base3d/src/LoadBitmap.c.s
 
 # target to generate assembly for a file
 base3d/src/LoadBitmap.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/LoadBitmap.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.c.s
 .PHONY : base3d/src/LoadBitmap.c.s
 
 base3d/src/SDLVersion/CSDL2Renderer.o: base3d/src/SDLVersion/CSDL2Renderer.c.o
@@ -291,7 +291,7 @@ base3d/src/SDLVersion/CSDL2Renderer.o: base3d/src/SDLVersion/CSDL2Renderer.c.o
 
 # target to build an object file
 base3d/src/SDLVersion/CSDL2Renderer.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/SDLVersion/CSDL2Renderer.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.c.o
 .PHONY : base3d/src/SDLVersion/CSDL2Renderer.c.o
 
 base3d/src/SDLVersion/CSDL2Renderer.i: base3d/src/SDLVersion/CSDL2Renderer.c.i
@@ -300,7 +300,7 @@ base3d/src/SDLVersion/CSDL2Renderer.i: base3d/src/SDLVersion/CSDL2Renderer.c.i
 
 # target to preprocess a source file
 base3d/src/SDLVersion/CSDL2Renderer.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/SDLVersion/CSDL2Renderer.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.c.i
 .PHONY : base3d/src/SDLVersion/CSDL2Renderer.c.i
 
 base3d/src/SDLVersion/CSDL2Renderer.s: base3d/src/SDLVersion/CSDL2Renderer.c.s
@@ -309,7 +309,7 @@ base3d/src/SDLVersion/CSDL2Renderer.s: base3d/src/SDLVersion/CSDL2Renderer.c.s
 
 # target to generate assembly for a file
 base3d/src/SDLVersion/CSDL2Renderer.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/base3d/src/SDLVersion/CSDL2Renderer.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.c.s
 .PHONY : base3d/src/SDLVersion/CSDL2Renderer.c.s
 
 menu/src/CreditsScreen.o: menu/src/CreditsScreen.c.o
@@ -318,7 +318,7 @@ menu/src/CreditsScreen.o: menu/src/CreditsScreen.c.o
 
 # target to build an object file
 menu/src/CreditsScreen.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/CreditsScreen.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.c.o
 .PHONY : menu/src/CreditsScreen.c.o
 
 menu/src/CreditsScreen.i: menu/src/CreditsScreen.c.i
@@ -327,7 +327,7 @@ menu/src/CreditsScreen.i: menu/src/CreditsScreen.c.i
 
 # target to preprocess a source file
 menu/src/CreditsScreen.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/CreditsScreen.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.c.i
 .PHONY : menu/src/CreditsScreen.c.i
 
 menu/src/CreditsScreen.s: menu/src/CreditsScreen.c.s
@@ -336,7 +336,7 @@ menu/src/CreditsScreen.s: menu/src/CreditsScreen.c.s
 
 # target to generate assembly for a file
 menu/src/CreditsScreen.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/CreditsScreen.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.c.s
 .PHONY : menu/src/CreditsScreen.c.s
 
 menu/src/HelpScreen.o: menu/src/HelpScreen.c.o
@@ -345,7 +345,7 @@ menu/src/HelpScreen.o: menu/src/HelpScreen.c.o
 
 # target to build an object file
 menu/src/HelpScreen.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/HelpScreen.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.c.o
 .PHONY : menu/src/HelpScreen.c.o
 
 menu/src/HelpScreen.i: menu/src/HelpScreen.c.i
@@ -354,7 +354,7 @@ menu/src/HelpScreen.i: menu/src/HelpScreen.c.i
 
 # target to preprocess a source file
 menu/src/HelpScreen.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/HelpScreen.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.c.i
 .PHONY : menu/src/HelpScreen.c.i
 
 menu/src/HelpScreen.s: menu/src/HelpScreen.c.s
@@ -363,7 +363,7 @@ menu/src/HelpScreen.s: menu/src/HelpScreen.c.s
 
 # target to generate assembly for a file
 menu/src/HelpScreen.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/HelpScreen.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.c.s
 .PHONY : menu/src/HelpScreen.c.s
 
 menu/src/Interrogation.o: menu/src/Interrogation.c.o
@@ -372,7 +372,7 @@ menu/src/Interrogation.o: menu/src/Interrogation.c.o
 
 # target to build an object file
 menu/src/Interrogation.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/Interrogation.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.c.o
 .PHONY : menu/src/Interrogation.c.o
 
 menu/src/Interrogation.i: menu/src/Interrogation.c.i
@@ -381,7 +381,7 @@ menu/src/Interrogation.i: menu/src/Interrogation.c.i
 
 # target to preprocess a source file
 menu/src/Interrogation.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/Interrogation.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.c.i
 .PHONY : menu/src/Interrogation.c.i
 
 menu/src/Interrogation.s: menu/src/Interrogation.c.s
@@ -390,7 +390,7 @@ menu/src/Interrogation.s: menu/src/Interrogation.c.s
 
 # target to generate assembly for a file
 menu/src/Interrogation.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/Interrogation.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.c.s
 .PHONY : menu/src/Interrogation.c.s
 
 menu/src/Main.o: menu/src/Main.c.o
@@ -399,7 +399,7 @@ menu/src/Main.o: menu/src/Main.c.o
 
 # target to build an object file
 menu/src/Main.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/Main.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.c.o
 .PHONY : menu/src/Main.c.o
 
 menu/src/Main.i: menu/src/Main.c.i
@@ -408,7 +408,7 @@ menu/src/Main.i: menu/src/Main.c.i
 
 # target to preprocess a source file
 menu/src/Main.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/Main.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.c.i
 .PHONY : menu/src/Main.c.i
 
 menu/src/Main.s: menu/src/Main.c.s
@@ -417,7 +417,7 @@ menu/src/Main.s: menu/src/Main.c.s
 
 # target to generate assembly for a file
 menu/src/Main.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/Main.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.c.s
 .PHONY : menu/src/Main.c.s
 
 menu/src/MainMenu.o: menu/src/MainMenu.c.o
@@ -426,7 +426,7 @@ menu/src/MainMenu.o: menu/src/MainMenu.c.o
 
 # target to build an object file
 menu/src/MainMenu.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/MainMenu.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.c.o
 .PHONY : menu/src/MainMenu.c.o
 
 menu/src/MainMenu.i: menu/src/MainMenu.c.i
@@ -435,7 +435,7 @@ menu/src/MainMenu.i: menu/src/MainMenu.c.i
 
 # target to preprocess a source file
 menu/src/MainMenu.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/MainMenu.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.c.i
 .PHONY : menu/src/MainMenu.c.i
 
 menu/src/MainMenu.s: menu/src/MainMenu.c.s
@@ -444,7 +444,7 @@ menu/src/MainMenu.s: menu/src/MainMenu.c.s
 
 # target to generate assembly for a file
 menu/src/MainMenu.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/MainMenu.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.c.s
 .PHONY : menu/src/MainMenu.c.s
 
 menu/src/UI.o: menu/src/UI.c.o
@@ -453,7 +453,7 @@ menu/src/UI.o: menu/src/UI.c.o
 
 # target to build an object file
 menu/src/UI.c.o:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/UI.c.o
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.c.o
 .PHONY : menu/src/UI.c.o
 
 menu/src/UI.i: menu/src/UI.c.i
@@ -462,7 +462,7 @@ menu/src/UI.i: menu/src/UI.c.i
 
 # target to preprocess a source file
 menu/src/UI.c.i:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/UI.c.i
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.c.i
 .PHONY : menu/src/UI.c.i
 
 menu/src/UI.s: menu/src/UI.c.s
@@ -471,7 +471,7 @@ menu/src/UI.s: menu/src/UI.c.s
 
 # target to generate assembly for a file
 menu/src/UI.c.s:
-	$(MAKE) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu/src/UI.c.s
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.c.s
 .PHONY : menu/src/UI.c.s
 
 # Help Target
@@ -482,7 +482,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... game"
+	@echo "... blank"
 	@echo "... base3d/src/CPackedFileReader.o"
 	@echo "... base3d/src/CPackedFileReader.i"
 	@echo "... base3d/src/CPackedFileReader.s"

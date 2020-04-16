@@ -21,7 +21,7 @@ enum ECommand mBufferedCommand = kCommandNone;
 
 
 enum ECommand getInput() {
-	const enum ECommand toReturn = mBufferedCommand;
-	mBufferedCommand = kCommandNone;
-	return toReturn;
+    const enum ECommand toReturn = mBufferedCommand;
+    mBufferedCommand = kCommandNone;
+    return toReturn;
 }

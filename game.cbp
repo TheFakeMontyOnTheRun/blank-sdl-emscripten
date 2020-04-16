@@ -87,9 +87,6 @@
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/CRenderer_Rasterization.c">
 			<Option target="game"/>
 		</Unit>
-		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/CRenderer_Tesselation.c">
-			<Option target="game"/>
-		</Unit>
 		<Unit filename="/Users/monty/git/blank-sdl-emscripten/base3d/src/FixP.c">
 			<Option target="game"/>
 		</Unit>

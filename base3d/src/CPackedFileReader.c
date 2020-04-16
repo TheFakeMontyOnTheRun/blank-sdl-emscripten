@@ -7,7 +7,9 @@
 #include <unistd.h>
 
 #ifndef ANDROID
+
 #include "Common.h"
+
 #else
 #include <jni.h>
 #include <android/asset_manager.h>
@@ -19,20 +21,20 @@ extern int isInstantApp;
 extern AAssetManager *defaultAssetManager;
 
 int android_read(void *cookie, char *buf, int size) {
-	return AAsset_read((AAsset *) cookie, buf, size);
+    return AAsset_read((AAsset *) cookie, buf, size);
 }
 
 int android_write(void *cookie, const char *buf, int size) {
-	return EACCES;
+    return EACCES;
 }
 
 fpos_t android_seek(void *cookie, fpos_t offset, int whence) {
-	return AAsset_seek((AAsset *) cookie, offset, whence);
+    return AAsset_seek((AAsset *) cookie, offset, whence);
 }
 
 int android_close(void *cookie) {
-	AAsset_close((AAsset *) cookie);
-	return 0;
+    AAsset_close((AAsset *) cookie);
+    return 0;
 }
 
 
@@ -54,11 +56,11 @@ FILE *android_fopen(const char* filename) {
 char mDataPath[kDataPath_MaxLength];
 
 
-void initFileReader(const char * __restrict__ dataFilePath) {
-	sprintf (mDataPath, "%s", dataFilePath);
+void initFileReader(const char *__restrict__ dataFilePath) {
+    sprintf (mDataPath, "%s", dataFilePath);
 }
 
-size_t sizeOfFile(const char * __restrict__ path) {
+size_t sizeOfFile(const char *__restrict__ path) {
 
 #ifndef ANDROID
     FILE *mDataPack = fopen(mDataPath, "rb");
@@ -66,41 +68,41 @@ size_t sizeOfFile(const char * __restrict__ path) {
     FILE *mDataPack = android_fopen(&mDataPath[0]);
 #endif
 
-	char buffer[85];
-	int c;
-	uint32_t size = 0;
-	uint32_t offset = 0;
-	uint16_t entries = 0;
-	assert (fread(&entries, 2, 1, mDataPack));
+    char buffer[85];
+    int c;
+    uint32_t size = 0;
+    uint32_t offset = 0;
+    uint16_t entries = 0;
+    assert (fread(&entries, 2, 1, mDataPack));
 
-	for (c = 0; c < entries; ++c) {
-		uint8_t stringSize = 0;
+    for (c = 0; c < entries; ++c) {
+        uint8_t stringSize = 0;
 
-		assert (fread(&offset, 4, 1, mDataPack));
-		offset = toNativeEndianess(offset);
-		assert (fread(&stringSize, 1, 1, mDataPack));
-		assert (fread(&buffer, stringSize + 1, 1, mDataPack));
+        assert (fread(&offset, 4, 1, mDataPack));
+        offset = toNativeEndianess(offset);
+        assert (fread(&stringSize, 1, 1, mDataPack));
+        assert (fread(&buffer, stringSize + 1, 1, mDataPack));
 
-		if (!strcmp(buffer, path)) {
-			goto found;
-		}
-	}
+        if (!strcmp(buffer, path)) {
+            goto found;
+        }
+    }
 
-	found:
-	if (offset == 0) {
-		printf("failed to load %s\n", path);
-		exit(-1);
-	}
+    found:
+    if (offset == 0) {
+        printf("failed to load %s\n", path);
+        exit(-1);
+    }
 
-	fseek(mDataPack, offset, SEEK_SET);
-	assert (fread(&size, 4, 1, mDataPack));
-	size = toNativeEndianess(size);
-	fclose(mDataPack);
+    fseek(mDataPack, offset, SEEK_SET);
+    assert (fread(&size, 4, 1, mDataPack));
+    size = toNativeEndianess(size);
+    fclose(mDataPack);
 
-	return size;
+    return size;
 }
 
-uint8_t *loadBinaryFileFromPath(const char * __restrict__ path) {
+uint8_t *loadBinaryFileFromPath(const char *__restrict__ path) {
 
 #ifndef ANDROID
     FILE *mDataPack = fopen(mDataPath, "rb");
@@ -109,47 +111,47 @@ uint8_t *loadBinaryFileFromPath(const char * __restrict__ path) {
 #endif
 
     uint32_t offset = 0;
-	uint16_t entries = 0;
-	char buffer[85];
-	int c;
-	uint32_t size = 0;
-	uint8_t *toReturn;
+    uint16_t entries = 0;
+    char buffer[85];
+    int c;
+    uint32_t size = 0;
+    uint8_t *toReturn;
 
-	assert (fread(&entries, 2, 1, mDataPack));
+    assert (fread(&entries, 2, 1, mDataPack));
 
-	for (c = 0; c < entries; ++c) {
-		uint8_t stringSize = 0;
+    for (c = 0; c < entries; ++c) {
+        uint8_t stringSize = 0;
 
-		assert (fread(&offset, 4, 1, mDataPack));
-		offset = toNativeEndianess(offset);
-		assert (fread(&stringSize, 1, 1, mDataPack));
-		assert (fread(&buffer, stringSize + 1, 1, mDataPack));
+        assert (fread(&offset, 4, 1, mDataPack));
+        offset = toNativeEndianess(offset);
+        assert (fread(&stringSize, 1, 1, mDataPack));
+        assert (fread(&buffer, stringSize + 1, 1, mDataPack));
 
-		if (!strcmp(buffer, path)) {
-			goto found;
-		}
-	}
+        if (!strcmp(buffer, path)) {
+            goto found;
+        }
+    }
 
-	found:
+    found:
 
-	if (offset == 0) {
-		printf("failed to load %s\n", path);
-		exit(-1);
-	}
+    if (offset == 0) {
+        printf("failed to load %s\n", path);
+        exit(-1);
+    }
 
-	fseek(mDataPack, offset, SEEK_SET);
+    fseek(mDataPack, offset, SEEK_SET);
 
-	assert (fread(&size, 4, 1, mDataPack));
-	size = toNativeEndianess(size);
-	toReturn = (uint8_t *) malloc(size);
+    assert (fread(&size, 4, 1, mDataPack));
+    size = toNativeEndianess(size);
+    toReturn = (uint8_t *) malloc(size);
 
-	assert (fread(toReturn, sizeof(uint8_t), size, mDataPack));
-	fclose(mDataPack);
+    assert (fread(toReturn, sizeof(uint8_t), size, mDataPack));
+    fclose(mDataPack);
 
-	return toReturn;
+    return toReturn;
 }
 
-FILE *openBinaryFileFromPath(const char * __restrict__ path) {
+FILE *openBinaryFileFromPath(const char *__restrict__ path) {
 
 #ifndef ANDROID
     FILE *mDataPack = fopen(mDataPath, "rb");
@@ -157,40 +159,40 @@ FILE *openBinaryFileFromPath(const char * __restrict__ path) {
     FILE *mDataPack = android_fopen(&mDataPath[0]);
 #endif
 
-	uint32_t offset = 0;
-	uint16_t entries = 0;
-	char buffer[85];
-	int c;
-	uint32_t size = 0;
+    uint32_t offset = 0;
+    uint16_t entries = 0;
+    char buffer[85];
+    int c;
+    uint32_t size = 0;
 
-	assert (fread(&entries, 2, 1, mDataPack));
+    assert (fread(&entries, 2, 1, mDataPack));
 
-	for (c = 0; c < entries; ++c) {
-		uint8_t stringSize = 0;
+    for (c = 0; c < entries; ++c) {
+        uint8_t stringSize = 0;
 
-		assert (fread(&offset, 4, 1, mDataPack));
-		offset = toNativeEndianess(offset);
+        assert (fread(&offset, 4, 1, mDataPack));
+        offset = toNativeEndianess(offset);
 
-		assert (fread(&stringSize, 1, 1, mDataPack));
-		assert (fread(&buffer, stringSize + 1, 1, mDataPack));
+        assert (fread(&stringSize, 1, 1, mDataPack));
+        assert (fread(&buffer, stringSize + 1, 1, mDataPack));
 
-		if (!strcmp(buffer, path)) {
-			goto found;
-		}
-	}
+        if (!strcmp(buffer, path)) {
+            goto found;
+        }
+    }
 
-	return NULL;
+    return NULL;
 
-	found:
+    found:
 
-	if (offset == 0) {
-		printf("failed to load %s\n", path);
-		exit(-1);
-	}
+    if (offset == 0) {
+        printf("failed to load %s\n", path);
+        exit(-1);
+    }
 
-	fseek(mDataPack, offset, SEEK_SET);
-	assert (fread(&size, 4, 1, mDataPack));
-	size = toNativeEndianess(size);
+    fseek(mDataPack, offset, SEEK_SET);
+    assert (fread(&size, 4, 1, mDataPack));
+    size = toNativeEndianess(size);
 
-	return mDataPack;
+    return mDataPack;
 }

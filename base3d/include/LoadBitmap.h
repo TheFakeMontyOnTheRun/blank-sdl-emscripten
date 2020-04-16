@@ -2,23 +2,22 @@
 #define BITMAP_H
 
 struct Bitmap {
-	uint8_t *data;
-	uint16_t width;
-	uint16_t height;
+    uint8_t *data;
+    uint16_t width;
+    uint16_t height;
 };
 
 
-
 struct Texture {
-	uint8_t rotations[4][32 * 32];
-	uint8_t rowMajor[32 * 32];
+    uint8_t rotations[4][32 * 32];
+    uint8_t rowMajor[32 * 32];
 };
 
 void clearTextures();
 
-struct Texture *makeTextureFrom(const char * __restrict__ filename);
+struct Texture *makeTextureFrom(const char *__restrict__ filename);
 
-struct Bitmap *loadBitmap(const char * __restrict__ filename);
+struct Bitmap *loadBitmap(const char *__restrict__ filename);
 
 void releaseBitmap(struct Bitmap *ptr);
 

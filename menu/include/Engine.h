@@ -72,8 +72,10 @@ void CreditsScreen_repaintCallback();
 int32_t CreditsScreen_tickCallback(int32_t tag, void *data);
 
 void CreditsScreen_unloadStateCallback();
+
 int countLines();
-void enterState( enum EGameMenuState State );
+
+void enterState(enum EGameMenuState State);
 
 #define MENU_ITEM_TIME_TO_BECOME_ACTIVE_MS 200
 

@@ -21,35 +21,36 @@ void handleSystemEvents();
 uint8_t getPaletteEntry(const uint32_t origin);
 
 void fill(
-		const int16_t x, const int16_t y,
-		const int16_t dx, const int16_t dy,
-		const uint8_t pixel, const int stipple);
+        const int16_t x, const int16_t y,
+        const int16_t dx, const int16_t dy,
+        const uint8_t pixel, const int stipple);
 
 void drawTextAt(const uint16_t x,
-				const uint16_t y,
-				const char * __restrict__ text,
-				const uint8_t colour);
+                const uint16_t y,
+                const char *__restrict__ text,
+                const uint8_t colour);
 
 void drawBitmap(const int16_t x,
-				const int16_t y,
-				const struct Bitmap * __restrict__ tile,
-						const int transparent);
+                const int16_t y,
+                const struct Bitmap *__restrict__ tile,
+                const int transparent);
 
 void drawRepeatBitmap(
-		const int16_t x,
-		const int16_t y,
-		const int16_t dx,
-		const int16_t dy,
-		const struct Bitmap * __restrict__ tile);
+        const int16_t x,
+        const int16_t y,
+        const int16_t dx,
+        const int16_t dy,
+        const struct Bitmap *__restrict__ tile);
 
 void drawRect(const int16_t x,
-			const int16_t y,
-			const uint16_t dx,
-			const uint16_t dy,
-			const uint8_t pixel);
+              const int16_t y,
+              const uint16_t dx,
+              const uint16_t dy,
+              const uint8_t pixel);
 
 void drawMask(const FixP_t x0,
-			const FixP_t y0,
-			const FixP_t x1,
-			const FixP_t y1);
+              const FixP_t y0,
+              const FixP_t x1,
+              const FixP_t y1);
+
 #endif

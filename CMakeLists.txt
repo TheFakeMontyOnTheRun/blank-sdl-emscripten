@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(game)
+project(blank)
 
 set(CMAKE_C_STANDARD 90)
 
@@ -18,7 +18,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DSDLSW -std=c90 -W -pedantic -Wall")
 
 find_package(SDL2 REQUIRED)
 
-add_executable(game
+add_executable(blank
 		menu/src/MainMenu.c
 		menu/src/Interrogation.c
         menu/src/HelpScreen.c
@@ -37,6 +37,6 @@ add_executable(game
 
 include(FindPkgConfig)
 
-target_include_directories(game PUBLIC ${SDL2_INCLUDE_DIR})
-target_link_libraries(game LINK_PUBLIC ${SDL2_LIBRARY} m)
+target_include_directories(blank PUBLIC ${SDL2_INCLUDE_DIR})
+target_link_libraries(blank LINK_PUBLIC ${SDL2_LIBRARY} m)
 

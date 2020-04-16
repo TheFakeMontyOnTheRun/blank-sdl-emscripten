@@ -9,6 +9,7 @@ typedef int32_t FixP_t;
 
 
 #ifndef FIX16
+
 int32_t
 #else
 int16_t
@@ -17,11 +18,11 @@ fixToInt(const FixP_t fp);
 
 FixP_t intToFix(const
 #ifndef FIX16
-				int32_t
+                int32_t
 #else
-				int16_t
+                int16_t
 #endif
-v);
+                v);
 
 FixP_t Mul(const FixP_t v1, const FixP_t v2);
 
