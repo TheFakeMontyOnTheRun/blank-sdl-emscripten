@@ -182,7 +182,7 @@ int main(int argc, char **argv) {
             "The Mistral Report - Invisible Affairs, 2018-2019 - by the Brotherhood "
             "of 13h");
 
-    srand(time(NULL));
+
     initHW();
     enterState(kMainMenu);
 
