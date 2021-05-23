@@ -1,7 +1,7 @@
-CC=/usr/local/djgpp/bin/i586-pc-msdosdjgpp-gcc
-CXX=/usr/local/djgpp/bin/i586-pc-msdosdjgpp-g++
-STRIP=/usr/local/djgpp/bin/i586-pc-msdosdjgpp-strip
-LD = i586-pc-msdosdjgpp-ld
+CC=i386-pc-msdosdjgpp-gcc
+CXX=i386-pc-msdosdjgpp-g++
+STRIP=i386-pc-msdosdjgpp-strip
+LD = i386-pc-msdosdjgpp-ld
 
 LDFLAGS = -lemu
 
