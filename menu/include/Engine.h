@@ -31,6 +31,9 @@ extern uint8_t cursorPosition;
 extern int32_t nextNavigationSelection;
 extern int32_t menuStateToReturn;
 
+extern uint32_t stateTick;
+extern uint32_t globalTick;
+
 int menuTick(long ms);
 
 int32_t MainMenu_initStateCallback(int32_t tag, void *data);
@@ -75,10 +78,20 @@ void CreditsScreen_unloadStateCallback();
 
 int countLines();
 
+void mainLoop();
+
 void enterState(enum EGameMenuState State);
 
 #define MENU_ITEM_TIME_TO_BECOME_ACTIVE_MS 200
 
 /* 84ms * 6 blinks == ~500ms */
 #define MENU_ITEM_TIME_TO_BLINK_MS 84
+
+
+#ifndef AGA5BPP
+void startup();
+
+unsigned long getMilliseconds();
+#endif
+
 #endif

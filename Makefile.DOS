@@ -45,6 +45,7 @@ MENU_OBJ= menu/src/Main.o \
 	  base3d/src/CPackedFileReader.o \
 	  menu/src/MainMenu.o \
 	  menu/src/UI.o \
+	  menu/src/Engine.o \
 	  menu/src/HelpScreen.o \
 	  menu/src/CreditsScreen.o \
 	  menu/src/Interrogation.o

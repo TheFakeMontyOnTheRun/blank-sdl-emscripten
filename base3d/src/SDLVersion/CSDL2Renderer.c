@@ -1,15 +1,22 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
 #include "Common.h"
 #include "Enums.h"
+#include "Globals.h"
 #include "FixP.h"
 #include "LoadBitmap.h"
 #include "Engine.h"
 #include "CRenderer.h"
 
 #include "SDL.h"
+
+#ifdef __EMSCRIPTEN__
+#include <emscripten/html5.h>
+#endif
 
 SDL_Window *window;
 SDL_Renderer *renderer;
@@ -28,6 +35,19 @@ uint8_t getPaletteEntry(const uint32_t origin) {
 
     return shade;
 }
+
+
+#ifdef __EMSCRIPTEN__
+void enterFullScreenMode() {
+    EmscriptenFullscreenStrategy s;
+    memset(&s, 0, sizeof(s));
+    s.scaleMode = EMSCRIPTEN_FULLSCREEN_SCALE_ASPECT;
+    s.canvasResolutionScaleMode = EMSCRIPTEN_FULLSCREEN_CANVAS_SCALE_NONE;
+    s.filteringMode = EMSCRIPTEN_FULLSCREEN_FILTERING_DEFAULT;
+    emscripten_enter_soft_fullscreen(0, &s);
+}
+#endif
+
 
 void graphicsInit() {
     int r, g, b;
@@ -125,12 +145,25 @@ void graphicsShutdown() {
     releaseBitmap(defaultFont);
 }
 
+unsigned long t0, t1, t2;
+
+void startup() {}
+
+unsigned long getMilliseconds() {
+    return 3;
+}
+
 void flipRenderer() {
     SDL_Rect rect;
     uint32_t pixel;
     int x, y;
 
     for (y = 0; y < 200; ++y) {
+
+        if ( y < dirtyLineY0 || y > dirtyLineY1 ) {
+            continue;
+        }
+
         for (x = 0; x < 320; ++x) {
 
             rect.x = 2 * x;

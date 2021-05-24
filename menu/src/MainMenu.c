@@ -4,6 +4,7 @@
 
 #include "FixP.h"
 #include "Enums.h"
+#include "Globals.h"
 #include "Common.h"
 #include "LoadBitmap.h"
 #include "Engine.h"
@@ -57,18 +58,24 @@ int32_t MainMenu_initStateCallback(int32_t tag, void *data) {
             biggestOption = len;
         }
     }
+    
+    dirtyLineY0 = 0;
+    dirtyLineY1 = 200;
+
     return 0;
 }
 
 void MainMenu_initialPaintCallback() {
-    drawRepeatBitmap(0, 32, 320, 200, currentBackgroundBitmap);
+	drawRepeatBitmap(0, 0, 320, 200, currentBackgroundBitmap);
+
+    drawImageWindow(2, 2, 21, 22, "Invisible affairs", logoBitmap);
 }
 
 void MainMenu_repaintCallback(void) {
     int16_t c;
 
     uint8_t optionsHeight = 8 * kMainMenuOptionsCount;
-
+/*
     if (currentPresentationState == kAppearing) {
         int invertedProgression = ((256 - (timeUntilNextState)) / 32) * 32;
         int size = lerpInt(0, 160, invertedProgression, 256);
@@ -91,8 +98,7 @@ void MainMenu_repaintCallback(void) {
                  sizeX, sizeY, 0);
         return;
     }
-
-    drawImageWindow(2, 2, 21, 22, "Invisible affairs", logoBitmap);
+*/
 
     drawWindow(40 - biggestOption - 3, 25 - 4 - (optionsHeight / 8), biggestOption + 2, (optionsHeight / 8) + 2,
                "Play Game");
@@ -108,12 +114,24 @@ void MainMenu_repaintCallback(void) {
         if (isCursor) {
             fill((uint16_t) (320 - (biggestOption * 8)) - 8 - 24,
                  (200 - optionsHeight) + (c * 8) - 24,
-                 (biggestOption * 8) + 16, 8, 0, FALSE);
+                 (biggestOption * 8) + 16, 8,
+#ifdef AGA5BPP
+                 7
+#else
+                 0
+#endif
+                 , FALSE);
         }
 
         drawTextAt(40 - biggestOption + 1 - 3,
                    (26 - kMainMenuOptionsCount) + c - 3,
-                   &MainMenu_options[c][0], isCursor ? 200 : 0);
+                   &MainMenu_options[c][0], 4);
+    }
+    
+    
+    if (stateTick > 5 ) {
+        dirtyLineY0 = (200 - optionsHeight) + (0 * 8) - 24;
+        dirtyLineY1 = (200 - optionsHeight) + (kMainMenuOptionsCount * 8) - 24;
     }
 
 }
@@ -128,7 +146,7 @@ int32_t MainMenu_tickCallback(int32_t tag, void *data) {
 
         switch (currentPresentationState) {
             case kAppearing:
-                timeUntilNextState = 250;
+                timeUntilNextState = 100;
                 currentPresentationState = kWaitingForInput;
                 break;
             case kWaitingForInput:
@@ -139,7 +157,7 @@ int32_t MainMenu_tickCallback(int32_t tag, void *data) {
             case kConfirmInputBlink4:
             case kConfirmInputBlink5:
             case kConfirmInputBlink6:
-                timeUntilNextState = 250;
+                timeUntilNextState = 100;
                 currentPresentationState =
                         (enum EPresentationState) ((int) currentPresentationState + 1);
                 break;

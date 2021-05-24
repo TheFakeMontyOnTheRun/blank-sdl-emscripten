@@ -27,6 +27,27 @@ int lerpInt(const int v0, const int v1, const long t, const long total) {
                             intToFix(total)));
 }
 
+#ifdef AGA5BPP
+
+
+uint32_t expandToARGB(uint8_t origin) {
+    uint32_t shade;
+
+    if (origin == TRANSPARENCY_COLOR) {
+        return 0;
+    }
+
+    shade = 0xFF000000;
+    shade += (((origin >> 6) & 3) << 6) << 16; //G
+    shade += (((origin >> 3) & 7) << 5) <<  8; //B
+    shade += (((origin >> 0) & 7) << 5) <<  0; //?
+
+    return shade;
+}
+
+#endif
+
+
 struct Bitmap *loadBitmap(const char *__restrict__ filename) {
     int c, d = 0;
     uint8_t pixel;
@@ -34,6 +55,11 @@ struct Bitmap *loadBitmap(const char *__restrict__ filename) {
 
     struct Bitmap *toReturn =
             (struct Bitmap *) calloc(1, sizeof(struct Bitmap));
+
+    if (toReturn == NULL ) {
+        puts("Not enough memory!");
+        exit(0);
+    }
 
     FILE *src = openBinaryFileFromPath(filename);
     size_t size;
@@ -67,7 +93,11 @@ struct Bitmap *loadBitmap(const char *__restrict__ filename) {
         repetitions = buffer[c + 1];
 
         for (d = 0; d < repetitions; ++d) {
+#ifdef AGA5BPP
+            toReturn->data[pixelIndex++] = getPaletteEntry(expandToARGB(pixel));
+#else
             toReturn->data[pixelIndex++] = pixel;
+#endif
         }
     }
 

@@ -15,31 +15,19 @@
 #include "Common.h"
 #include "Enums.h"
 #include "FixP.h"
-#include "Vec.h"
-#include "Vec.h"
 #include "LoadBitmap.h"
-#include "CActor.h"
 #include "Engine.h"
-#include "Dungeon.h"
-#include "MapWithCharKey.h"
-#include "CTile3DProperties.h"
 #include "CRenderer.h"
-#include "SpyTravel.h"
 #include "FixP.h"
-#include "Vec.h"
 #include "Enums.h"
-#include "CActor.h"
-#include "MapWithCharKey.h"
 #include "Common.h"
 #include "LoadBitmap.h"
 #include "Engine.h"
-#include "CTile3DProperties.h"
 #include "CRenderer.h"
-#include "VisibilityStrategy.h"
 #include "CPackedFileReader.h"
-#include "SoundSystem.h"
 
 int isInstantApp = FALSE;
+long t0, t1, t2;
 
 void initHW(void);
 
@@ -90,11 +78,7 @@ void handleSystemEvents(void) {
 }
 
 void graphicsShutdown(void) {
-
-
     releaseBitmap(defaultFont);
-
-    texturesUsed = 0;
 }
 
 void flipRenderer(void) {

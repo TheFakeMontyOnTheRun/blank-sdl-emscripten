@@ -6,6 +6,7 @@
 
 #include "Enums.h"
 #include "FixP.h"
+#include "Globals.h"
 #include "Engine.h"
 #include "Common.h"
 #include "CPackedFileReader.h"
@@ -42,7 +43,8 @@ int32_t HelpScreen_initStateCallback(int32_t tag, void *data) {
     fclose(fileInput);
 
     HelpScreen_optionsCount = 1;
-
+    dirtyLineY0 = 0;
+    dirtyLineY1 = 200;
     return 0;
 }
 
@@ -104,11 +106,24 @@ void HelpScreen_repaintCallback(void) {
         if (isCursor) {
             fill(320 - (len * 8) - 16 - 8 - 8,
                  (200 - optionsHeight) + (c * 8) - 8 - 8, (len * 8) + 16, 8,
-                 0, FALSE);
+#ifdef AGA5BPP
+                    7
+#else
+                 0
+#endif
+                 , FALSE);
         }
 
         drawTextAt(40 - len - 2, (26 - HelpScreen_optionsCount) + c - 2,
-                   &HelpScreen_options[c][0], isCursor ? 255 : 0);
+                   &HelpScreen_options[c][0],
+
+#ifdef AGA5BPP
+                isCursor ? 0 : 7
+#else
+                   isCursor ? 8 : 0
+#endif
+
+                   );
     }
 }
 
@@ -133,7 +148,7 @@ int32_t HelpScreen_tickCallback(int32_t tag, void *data) {
             case kConfirmInputBlink4:
             case kConfirmInputBlink5:
             case kConfirmInputBlink6:
-                timeUntilNextState = 250;
+                timeUntilNextState = 100;
                 currentPresentationState =
                         (enum EPresentationState) ((int) currentPresentationState + 1);
                 break;

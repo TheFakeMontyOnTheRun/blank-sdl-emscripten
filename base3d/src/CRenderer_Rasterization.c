@@ -24,7 +24,7 @@ void drawRect(
     uint8_t *destinationLineStart = destination + (320 * (y)) + x;
     int16_t py;
 
-    if (pixel == mTransparency) {
+    if (pixel == TRANSPARENCY_COLOR) {
         return;
     }
 
@@ -50,7 +50,7 @@ void fill(
     uint8_t *destination = &framebuffer[0];
     int16_t py;
 
-    if (pixel == mTransparency) {
+    if (pixel == TRANSPARENCY_COLOR) {
         return;
     }
 
@@ -96,7 +96,7 @@ void drawBitmap(const int16_t dx,
             for (x = 0; x < width; ++x) {
                 uint8_t pixel = *sourceLineStart;
 
-                if (!transparent || (pixel != mTransparency)) {
+                if (!transparent || (pixel != TRANSPARENCY_COLOR)) {
                     *destinationLineStart = pixel;
                 }
 
@@ -127,19 +127,26 @@ void drawRepeatBitmap(
         const int16_t dy,
         const struct Bitmap *__restrict__ tile) {
 
-    size_t repeatX = (dx / tile->width) + 1;
-    size_t repeatY = (dy / tile->height) + 1;
-    size_t c, d;
-    for (c = 0; c < repeatY; ++c) {
-        for (d = 0; d < repeatX; ++d) {
+	int16_t repeatX;
+	int16_t repeatY;
+    uint16_t px, py;
 
-            size_t px = d * tile->width;
-            size_t py = c * tile->height;
+	py = y;
+    repeatY = dy;
+    while (repeatY > 0) {
+    	repeatX = dx;
+		px = x;
+    	while (repeatX > 0 ) {
+			repeatX -= tile->width;
 
-            if (px < 320 && py < 200) {
-                drawBitmap(px, py, tile, FALSE);
-            }
-        }
+			if (px < 320 && py < 200) {
+				drawBitmap(px, py, tile, FALSE);
+			}
+
+			px += tile->width;
+    	}
+		py += tile->height;
+		repeatY -= tile->height;
     }
 }
 
@@ -179,7 +186,7 @@ void drawTextAt(const uint16_t x, const uint16_t y, const char *__restrict__ tex
 
             for (srcX = 0; srcX < 8; ++srcX) {
 
-                if ((*letterSrc) != mTransparency) {
+                if ((*letterSrc) != TRANSPARENCY_COLOR) {
                     *letterDst = colour;
                 }
 

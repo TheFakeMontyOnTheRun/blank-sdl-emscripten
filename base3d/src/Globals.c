@@ -19,6 +19,7 @@ enum EPresentationState currentPresentationState;
 size_t biggestOption;
 const char *mainText = NULL;
 int isRunning = TRUE;
+int dirtyLineY0, dirtyLineY1;
 
 int isBigEndian() {
     union {

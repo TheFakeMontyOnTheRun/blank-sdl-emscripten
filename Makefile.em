@@ -10,10 +10,6 @@ CFLAGS=-g -c -O3 -std=c90    \
 	$(SDL_INCLUDE)                                       \
 	-DSDLSW                                              \
 	-DVGA                                                \
-	-Wall                                                \
-	-Werror												 \
-	-ansi												 \
-	--pedantic                                           \
 	-fomit-frame-pointer                                 \
 	-fno-exceptions                                      \
 	-ffast-math
@@ -23,6 +19,7 @@ MENU_TARGET=game.html
 MENU_OBJ=menu/src/MainMenu.o \
 	menu/src/Interrogation.o \
 	menu/src/UI.o \
+	menu/src/Engine.o \
 	menu/src/Main.o \
 	base3d/src/SDLVersion/SDL1Renderer.o \
 	base3d/src/Globals.o \

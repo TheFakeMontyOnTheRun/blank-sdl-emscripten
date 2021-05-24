@@ -3,7 +3,9 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.10.2)
+
+project("blank")
 
 include_directories(../../../../../base3d/include)
 include_directories(../../../../../common/include)
@@ -28,6 +30,7 @@ add_library( # Sets the name of the library.
         ../../../../../menu/src/MainMenu.c
         ../../../../../menu/src/Interrogation.c
         ../../../../../menu/src/HelpScreen.c
+        ../../../../../menu/src/Engine.c
         ../../../../../menu/src/CreditsScreen.c
         ../../../../../menu/src/Main.c
         ../../../../../base3d/src/Globals.c
@@ -37,7 +40,7 @@ add_library( # Sets the name of the library.
         ../../../../../base3d/src/CRenderer_Rasterization.c
         ../../../../../base3d/src/CPackedFileReader.c
         ../../../../../menu/src/UI.c
-        ../../../../../SoundSystem/PCMAudio.c
+#        ../../../../../SoundSystem/PCMAudio.c
         native-lib.c)
 
 # Searches for a specified prebuilt library and stores the path as a

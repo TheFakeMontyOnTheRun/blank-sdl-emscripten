@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 #include "FixP.h"
+#include "Globals.h"
 #include "LoadBitmap.h"
 #include "Enums.h"
 #include "Engine.h"
@@ -152,7 +153,8 @@ int32_t Interrogation_initStateCallback(int32_t tag, void *data) {
 }
 
 void Interrogation_initialPaintCallback() {
-
+    dirtyLineY0 = 0;
+    dirtyLineY1 = 200;
 }
 
 void Interrogation_repaintCallback() {

@@ -4,7 +4,7 @@ STRIP=m68k-amigaos-strip
 AS = vasmm68k_mot
 CFLAGS = -DAMIGA -Ibase3d/include -Imenu/include -ISoundSystem -c -m68000 -s -fno-keep-inline-functions -fexpensive-optimizations -fno-keep-inline-functions -fomit-frame-pointer -ffast-math -Ofast -DAGA5BPP
 LDFLAGS =  -msmall-code -fexpensive-optimizations -O3 -s -fomit-frame-pointer -noixemul
-ASFLAGS = -phxass -Fhunk -m68020 -chklabels -no-fpu -wfail -I/opt/amiga/m68k-amigaos/ndk-include
+ASFLAGS = -phxass -Fhunk -m68000 -chklabels -no-fpu -wfail -I/opt/amiga/m68k-amigaos/ndk-include
 
 MENU_TARGET=game12k
 
@@ -22,6 +22,7 @@ MENU_OBJ= menu/src/Main.o \
 	menu/src/UI.o \
 	base3d/src/Globals.o \
 	menu/src/HelpScreen.o \
+	menu/src/Engine.o \
 	menu/src/CreditsScreen.o \
 	menu/src/MainMenu.o
 
@@ -34,6 +35,7 @@ all:   $(MENU_TARGET)
 adf: $(MENU_TARGET)
 	rm -f blank.adf
 	xdftool blank.adf format "Blank - The Game" + write game12k game12k + write base.pfs base.pfs
+	xdftool blank.adf boot install
 	xdftool blank.adf list
 
 clean:

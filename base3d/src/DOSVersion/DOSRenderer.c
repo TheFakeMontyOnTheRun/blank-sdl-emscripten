@@ -14,6 +14,7 @@
 #include <stdint.h>
 
 #include "Enums.h"
+#include "Globals.h"
 #include "FixP.h"
 #include "Common.h"
 #include "CPackedFileReader.h"
@@ -42,6 +43,7 @@ enum EColor {
 };
 
 long frame = 0;
+long t0, t1, t2;
 
 void graphicsShutdown() {
 
@@ -148,7 +150,7 @@ void handleSystemEvents() {
 }
 
 void flipRenderer() {
-    dosmemput(&framebuffer[0], 320 * 200, 0xa0000);
+    dosmemput(&framebuffer[dirtyLineY0 * 320], 320 * 200, 0xa0000 + (dirtyLineY0 * 320));
 }
 
 void clear() {}
