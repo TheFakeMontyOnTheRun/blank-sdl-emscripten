@@ -1,0 +1,14 @@
+# Microsoft Developer Studio Generated Dependency File, included by The Mistral Report 95.mak
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	
+
+".\The Mistral Report 95.cpp" : \
+	".\StdAfx.h"\
+	
+
+".\The Mistral Report 95.rc" : \
+	".\small.ico"\
+	".\The Mistral Report 95.ico"\
+	
