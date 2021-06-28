@@ -1,4 +1,4 @@
-package pt.b13h.themistralreport
+package pt.b13h.blank
 
 import android.app.Application
 import android.content.Context

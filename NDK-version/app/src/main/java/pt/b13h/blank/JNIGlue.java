@@ -1,8 +1,8 @@
-package pt.b13h.themistralreport;
+package pt.b13h.blank;
 
 import android.content.res.AssetManager;
 
-public class MistralJNI {
+public class JNIGlue {
     static {
         System.loadLibrary("native-lib");
     }

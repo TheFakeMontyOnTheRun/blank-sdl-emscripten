@@ -1,4 +1,4 @@
-package pt.b13h.themistralreport
+package pt.b13h.blank
 
 import android.app.Presentation
 import android.content.Context
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null ) {
-            MistralJNI.initAssets(resources.assets)
+            JNIGlue.initAssets(resources.assets)
         }
 
 
@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 while (running) {
                     Thread.sleep(10)
-                    when (val sound = MistralJNI.getSoundToPlay()) {
+                    when (val sound = JNIGlue.getSoundToPlay()) {
                         0, 1, 2, 3, 4, 5, 6, 7, 8 -> soundPool!!.play(sounds[sound], 1f, 1f, 0, 0, 1f)
                     }
 
@@ -159,10 +159,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onBackPressed() {
-        if (MistralJNI.isOnMainMenu() != 0 ) {
+        if (JNIGlue.isOnMainMenu() != 0 ) {
             super.onBackPressed()
         } else {
-            MistralJNI.sendCommand('q')
+            JNIGlue.sendCommand('q')
         }
     }
     override fun onPause() {
@@ -174,7 +174,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun redraw() {
-        MistralJNI.getPixelsFromNative(pixels)
+        JNIGlue.getPixelsFromNative(pixels)
         bitmap.copyPixelsFromBuffer(ByteBuffer.wrap(pixels))
         imageView.invalidate()
     }
@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             KeyEvent.KEYCODE_BUTTON_START, KeyEvent.KEYCODE_BUTTON_X, KeyEvent.KEYCODE_ENTER -> 'q'
             else -> return super.onKeyUp(keyCode, event )
         }
-        MistralJNI.sendCommand(toSend)
+        JNIGlue.sendCommand(toSend)
         return true
     }
 
@@ -215,7 +215,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnStrafeLeft-> toSend = 'n'
             R.id.btnStrafeRight-> toSend = 'm'
         }
-        MistralJNI.sendCommand(toSend)
+        JNIGlue.sendCommand(toSend)
     }
 
 
