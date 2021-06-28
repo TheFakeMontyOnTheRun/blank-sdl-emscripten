@@ -67,7 +67,7 @@
 		F1B679BD24E4AAE400FCEF8E /* GameWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameWindow.m; sourceTree = "<group>"; };
 		F1BD0D30236EF697002329C6 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		F1BD0D31236EF697002329C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
-		F1CA76B32610A8BF00FD1E04 /* Derelict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Derelict.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1CA76B32610A8BF00FD1E04 /* Blank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CA76B52610A8BF00FD1E04 /* Blank-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Blank-info.plist"; sourceTree = "<group>"; };
 		F1CD088E2450E32D00D4794D /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = ../base3d/include/Globals.h; sourceTree = SOURCE_ROOT; };
 		F1CD08C62450E41C00D4794D /* base.pfs */ = {isa = PBXFileReference; lastKnownFileType = file; name = base.pfs; path = ../base.pfs; sourceTree = SOURCE_ROOT; };
@@ -121,7 +121,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1CA76B32610A8BF00FD1E04 /* Derelict.app */,
+				F1CA76B32610A8BF00FD1E04 /* Blank.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,9 +191,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1CA76B22610A8BF00FD1E04 /* Derelict */ = {
+		F1CA76B22610A8BF00FD1E04 /* Blank */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1CA76B62610A8C100FD1E04 /* Build configuration list for PBXNativeTarget "Derelict" */;
+			buildConfigurationList = F1CA76B62610A8C100FD1E04 /* Build configuration list for PBXNativeTarget "Blank" */;
 			buildPhases = (
 				F1CA76AF2610A8BF00FD1E04 /* Resources */,
 				F1CA76B02610A8BF00FD1E04 /* Sources */,
@@ -203,9 +203,9 @@
 			);
 			dependencies = (
 			);
-			name = Derelict;
+			name = Blank;
 			productName = Derelict;
-			productReference = F1CA76B32610A8BF00FD1E04 /* Derelict.app */;
+			productReference = F1CA76B32610A8BF00FD1E04 /* Blank.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +228,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1CA76B22610A8BF00FD1E04 /* Derelict */,
+				F1CA76B22610A8BF00FD1E04 /* Blank */,
 			);
 		};
 /* End PBXProject section */
@@ -337,7 +337,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				PRODUCT_NAME = Derelict;
+				PRODUCT_NAME = Blank;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -357,7 +357,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				PRODUCT_NAME = Derelict;
+				PRODUCT_NAME = Blank;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
@@ -375,7 +375,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		F1CA76B62610A8C100FD1E04 /* Build configuration list for PBXNativeTarget "Derelict" */ = {
+		F1CA76B62610A8C100FD1E04 /* Build configuration list for PBXNativeTarget "Blank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1CA76B72610A8C100FD1E04 /* Debug */,
