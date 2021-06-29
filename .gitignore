@@ -27,3 +27,7 @@
 *.exe
 *.out
 *.app
+game.data
+game.html
+game.html.mem
+game.js
