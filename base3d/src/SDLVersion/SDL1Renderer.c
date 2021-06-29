@@ -23,6 +23,7 @@
 #endif
 
 SDL_Surface *video;
+SDL_Surface *stretchedBuffer;
 
 #ifdef __EMSCRIPTEN__
 void enterFullScreenMode() {
@@ -52,16 +53,18 @@ uint8_t getPaletteEntry(uint32_t origin) {
 }
 
 void graphicsInit() {
-    int r, g, b;
+    int r, g, b, c;
 
     SDL_Init(SDL_INIT_EVERYTHING);
-    video = SDL_SetVideoMode(640, 480, 32, 0);
+    video = SDL_SetVideoMode(320, 240, 32, 0);
     for (r = 0; r < 256; r += 16) {
         for (g = 0; g < 256; g += 8) {
             for (b = 0; b < 256; b += 8) {
                 uint32_t pixel = 0xFF000000 + (r << 16) + (g << 8) + (b);
                 uint8_t paletteEntry = getPaletteEntry(pixel);
-                palette[paletteEntry] = pixel;
+                palette[paletteEntry] = SDL_MapRGB(video->format, (((pixel & 0x000000FF))) - 0x38,
+                                                   (((pixel & 0x0000FF00) >> 8)) - 0x18,
+                                                   (((pixel & 0x00FF0000) >> 16)) - 0x10);
             }
         }
     }
@@ -70,6 +73,8 @@ void graphicsInit() {
     enterFullScreenMode ();
 #endif
     defaultFont = loadBitmap("font.img");
+    stretchedBuffer = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240, 32, video->format->Rmask, video->format->Gmask,
+                                           video->format->Bmask, video->format->Rmask);
 }
 
 void handleSystemEvents() {
@@ -144,25 +149,50 @@ void graphicsShutdown() {
 }
 
 void flipRenderer() {
-    int16_t x, y;
-    uint32_t pixel;
+
+    int x = 0, y = 0;
+    int dstY = 0;
+    int scaller = 0;
+    int even = 0;
+    int heightY = 1;
+    int chunky;
+    uint8_t *src;
+    uint32_t *dst;
+
+
+    SDL_LockSurface(stretchedBuffer);
+
+
     for (y = 0; y < 200; ++y) {
-        for (x = 0; x < 320; ++x) {
-            SDL_Rect rect;
-            rect.x = 2 * x;
-            rect.y = (24 * y) / 10;
-            rect.w = 2;
-            rect.h = 3;
+        if (scaller == 4) {
+            heightY = 2;
+        } else {
+            heightY = 1;
+        }
 
-            pixel = palette[framebuffer[(320 * y) + x]];
 
-            SDL_FillRect(
-                    video, &rect,
-                    SDL_MapRGB(video->format, (((pixel & 0x000000FF))) - 0x38,
-                               (((pixel & 0x0000FF00) >> 8)) - 0x18,
-                               (((pixel & 0x00FF0000) >> 16)) - 0x10));
+        for (chunky = 0; chunky < heightY; ++chunky) {
+            dst = stretchedBuffer->pixels;
+            src = &framebuffer[(320 * y)];
+            dst += (320 * (dstY + chunky));
+
+            for (x = 0; x < 320; ++x) {
+                *dst++ = palette[*src++];
+            }
+        }
+
+        dstY++;
+        scaller++;
+
+
+        if (scaller == 5) {
+            scaller = 0;
+            dstY++;
         }
     }
+
+    SDL_UnlockSurface(stretchedBuffer);
+    SDL_BlitSurface(stretchedBuffer, NULL, video, NULL);
 
     SDL_Flip(video);
 #ifndef __EMSCRIPTEN__
