@@ -3,6 +3,8 @@ project(blank)
 
 set(CMAKE_C_STANDARD 90)
 
+set(CMAKE_CXX_STANDARD 14)
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake_find")
 
 include_directories(
@@ -14,25 +16,26 @@ include_directories(common/include)
 include_directories(menu/include)
 include_directories(SoundSystem)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DSDLSW -std=c90 -W -pedantic -Wall")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DSDLSW -std=c90 -W -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DSDLSW -std=c++14 -W -Wall")
 
 find_package(SDL2 REQUIRED)
 
 add_executable(blank
-		menu/src/MainMenu.c
-		menu/src/Interrogation.c
-        menu/src/HelpScreen.c
-		menu/src/CreditsScreen.c
-        menu/src/Main.c
-		menu/src/Engine.c
-		base3d/src/SDLVersion/CSDL2Renderer.c
-		base3d/src/Globals.c
-		base3d/src/LoadBitmap.c
-		base3d/src/CRenderer.c
-		base3d/src/FixP.c
-		base3d/src/CRenderer_Rasterization.c
-		base3d/src/CPackedFileReader.c
-        menu/src/UI.c
+		menu/src/MainMenu.cpp
+		menu/src/Interrogation.cpp
+        menu/src/HelpScreen.cpp
+		menu/src/CreditsScreen.cpp
+        menu/src/Main.cpp
+		menu/src/Engine.cpp
+		base3d/src/SDLVersion/CSDL2Renderer.cpp
+		base3d/src/Globals.cpp
+		base3d/src/LoadBitmap.cpp
+		base3d/src/CRenderer.cpp
+		base3d/src/FixP.cpp
+		base3d/src/CRenderer_Rasterization.cpp
+		base3d/src/CPackedFileReader.cpp
+        menu/src/UI.cpp
 		)
 
 

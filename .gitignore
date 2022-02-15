@@ -31,3 +31,5 @@ game.data
 game.html
 game.html.mem
 game.js
+.idea
+cmake-build-debug

@@ -107,7 +107,7 @@ enum ESoundDriver soundDriver = kNoSound;
 int menuTick(long delta_time) {
 
     enum ECommand input;
-    int32_t newState;
+    enum EGameMenuState newState;
 
     globalTick++;
     stateTick++;
@@ -125,7 +125,7 @@ int menuTick(long delta_time) {
 
     input = getInput();
 
-    newState = tickCallback(input, &delta_time);
+    newState = (EGameMenuState)tickCallback(input, &delta_time);
 
     if (input == kCommandQuit) {
         return FALSE;
@@ -147,7 +147,7 @@ int start_clock, end_clock, prev;
 void mainLoop() {
     long now, delta_time;
     enum ECommand input;
-    int32_t newState;
+    EGameMenuState newState;
 
     globalTick++;
     stateTick++;
@@ -173,7 +173,7 @@ void mainLoop() {
 #endif
 #endif
 	input = getInput();
-	newState = tickCallback(input, &delta_time);
+	newState = (EGameMenuState)tickCallback(input, &delta_time);
     
     if (input == kCommandQuit) {
         isRunning = FALSE;

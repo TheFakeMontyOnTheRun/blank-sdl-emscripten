@@ -27,8 +27,6 @@ int emotionAmount[4];
 
 struct Bitmap *emotions[4];
 
-struct Vec2i interrogationPosition;
-struct Vec2i interrogationTargetSpot;
 struct Bitmap *character;
 struct Bitmap *eyesL;
 struct Bitmap *eyesR;
@@ -45,6 +43,11 @@ struct Vec2i {
     int8_t x;
     int8_t y;
 };
+
+
+struct Vec2i interrogationPosition;
+struct Vec2i interrogationTargetSpot;
+
 
 void initVec2i(struct Vec2i *__restrict__ vec, int8_t x, int8_t y) {
     vec->x = x;
