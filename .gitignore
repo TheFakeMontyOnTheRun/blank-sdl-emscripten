@@ -33,3 +33,8 @@ game.html.mem
 game.js
 .idea
 cmake-build-debug
+CMakeFiles
+blank
+blank.cbp
+cmake_install.cmake
+CMakeCache.txt

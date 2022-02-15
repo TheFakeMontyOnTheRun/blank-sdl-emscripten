@@ -120,7 +120,7 @@ void MainMenu_repaintCallback(void) {
 #else
                  0
 #endif
-                 , FALSE);
+                 , false);
         }
 
         drawTextAt(40 - biggestOption + 1 - 3,

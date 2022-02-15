@@ -93,7 +93,7 @@ void enterState(enum EGameMenuState newState) {
             unloadStateCallback = Interrogation_unloadStateCallback;
             break;
         case kQuit:
-            isRunning = FALSE;
+            isRunning = false;
             break;
     }
 
@@ -101,8 +101,6 @@ void enterState(enum EGameMenuState newState) {
     initStateCallback(newState, NULL);
     initialPaintCallback();
 }
-
-enum ESoundDriver soundDriver = kNoSound;
 
 int menuTick(long delta_time) {
 
@@ -114,10 +112,6 @@ int menuTick(long delta_time) {
     
     handleSystemEvents();
 
-    if (soundDriver != kNoSound) {
- /*       soundTick(); */
-    }
-
     /* protect against machines too fast for their own good. */
     if (delta_time <= 0) {
         delta_time = 1;
@@ -128,7 +122,7 @@ int menuTick(long delta_time) {
     newState = (EGameMenuState)tickCallback(input, &delta_time);
 
     if (input == kCommandQuit) {
-        return FALSE;
+        return false;
     }
 
     if (newState != currentGameMenuState && newState != -1) {
@@ -139,7 +133,7 @@ int menuTick(long delta_time) {
     repaintCallback();
     flipRenderer();
 
-    return TRUE;
+    return true;
 }
 
 int start_clock, end_clock, prev;
@@ -176,7 +170,7 @@ void mainLoop() {
 	newState = (EGameMenuState)tickCallback(input, &delta_time);
     
     if (input == kCommandQuit) {
-        isRunning = FALSE;
+        isRunning = false;
     }
     
     if (newState != currentGameMenuState && newState != -1) {

@@ -11,17 +11,13 @@ typedef int32_t ( *TickCallback )(int32_t tag, void *data);
 
 typedef void ( *UnloadStateCallback )();
 
-#define kNonExpiringPresentationState 0xFFFF
-#define kDefaultPresentationStateInterval 2000
 #define kMenuStateUnchanged -1
-
-
 extern InitStateCallback initStateCallback;
 extern InitialPaintCallback initialPaintCallback;
 extern RepaintCallback repaintCallback;
 extern TickCallback tickCallback;
 extern UnloadStateCallback unloadStateCallback;
-extern int isRunning;
+extern bool isRunning;
 
 extern long timeUntilNextState;
 extern enum EPresentationState currentPresentationState;
@@ -33,8 +29,6 @@ extern int32_t menuStateToReturn;
 
 extern uint32_t stateTick;
 extern uint32_t globalTick;
-
-int menuTick(long ms);
 
 int32_t MainMenu_initStateCallback(int32_t tag, void *data);
 
@@ -86,12 +80,4 @@ void enterState(enum EGameMenuState State);
 
 /* 84ms * 6 blinks == ~500ms */
 #define MENU_ITEM_TIME_TO_BLINK_MS 84
-
-
-#ifndef AGA5BPP
-void startup();
-
-unsigned long getMilliseconds();
-#endif
-
 #endif

@@ -147,31 +147,26 @@ void graphicsShutdown() {
 
 unsigned long t0, t1, t2;
 
-void startup() {}
-
-unsigned long getMilliseconds() {
-    return 3;
-}
-
 void flipRenderer() {
     SDL_Rect rect;
     uint32_t pixel;
     int x, y;
 
-    for (y = 0; y < 200; ++y) {
+    rect.w = 1;
+    rect.h = 1;
+
+    for (y = 0; y < 480; ++y) {
 
         if ( y < dirtyLineY0 || y > dirtyLineY1 ) {
             continue;
         }
 
-        for (x = 0; x < 320; ++x) {
+        for (x = 0; x < 640; ++x) {
 
-            rect.x = 2 * x;
-            rect.y = (24 * y) / 10;
-            rect.w = 2;
-            rect.h = 3;
+            rect.x = x;
+            rect.y = y;
 
-            pixel = palette[framebuffer[(320 * y) + x]];
+            pixel = palette[framebuffer[(640 * y) + x]];
 
             SDL_SetRenderDrawColor(renderer, (pixel & 0x000000FF) - 0x38,
                                    ((pixel & 0x0000FF00) >> 8) - 0x18,
@@ -186,5 +181,3 @@ void flipRenderer() {
     SDL_Delay(1000 / 60);
 #endif
 }
-
-void clearRenderer() {}

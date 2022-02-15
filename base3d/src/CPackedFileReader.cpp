@@ -102,54 +102,6 @@ size_t sizeOfFile(const char *__restrict__ path) {
     return size;
 }
 
-uint8_t *loadBinaryFileFromPath(const char *__restrict__ path) {
-
-#ifndef ANDROID
-    FILE *mDataPack = fopen(mDataPath, "rb");
-#else
-    FILE *mDataPack = android_fopen(&mDataPath[0]);
-#endif
-
-    uint32_t offset = 0;
-    uint16_t entries = 0;
-    char buffer[85];
-    int c;
-    uint32_t size = 0;
-    uint8_t *toReturn;
-
-    assert (fread(&entries, 2, 1, mDataPack));
-
-    for (c = 0; c < entries; ++c) {
-        uint8_t stringSize = 0;
-
-        assert (fread(&offset, 4, 1, mDataPack));
-        offset = toNativeEndianess(offset);
-        assert (fread(&stringSize, 1, 1, mDataPack));
-        assert (fread(&buffer, stringSize + 1, 1, mDataPack));
-
-        if (!strcmp(buffer, path)) {
-            goto found;
-        }
-    }
-
-    found:
-
-    if (offset == 0) {
-        printf("failed to load %s\n", path);
-        exit(-1);
-    }
-
-    fseek(mDataPack, offset, SEEK_SET);
-
-    assert (fread(&size, 4, 1, mDataPack));
-    size = toNativeEndianess(size);
-    toReturn = (uint8_t *) malloc(size);
-
-    assert (fread(toReturn, sizeof(uint8_t), size, mDataPack));
-    fclose(mDataPack);
-
-    return toReturn;
-}
 
 FILE *openBinaryFileFromPath(const char *__restrict__ path) {
 

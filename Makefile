@@ -123,356 +123,383 @@ blank/fast:
 	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/build
 .PHONY : blank/fast
 
-base3d/src/CPackedFileReader.o: base3d/src/CPackedFileReader.c.o
+base3d/src/CPackedFileReader.o: base3d/src/CPackedFileReader.cpp.o
 
 .PHONY : base3d/src/CPackedFileReader.o
 
 # target to build an object file
-base3d/src/CPackedFileReader.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.c.o
-.PHONY : base3d/src/CPackedFileReader.c.o
+base3d/src/CPackedFileReader.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.cpp.o
+.PHONY : base3d/src/CPackedFileReader.cpp.o
 
-base3d/src/CPackedFileReader.i: base3d/src/CPackedFileReader.c.i
+base3d/src/CPackedFileReader.i: base3d/src/CPackedFileReader.cpp.i
 
 .PHONY : base3d/src/CPackedFileReader.i
 
 # target to preprocess a source file
-base3d/src/CPackedFileReader.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.c.i
-.PHONY : base3d/src/CPackedFileReader.c.i
+base3d/src/CPackedFileReader.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.cpp.i
+.PHONY : base3d/src/CPackedFileReader.cpp.i
 
-base3d/src/CPackedFileReader.s: base3d/src/CPackedFileReader.c.s
+base3d/src/CPackedFileReader.s: base3d/src/CPackedFileReader.cpp.s
 
 .PHONY : base3d/src/CPackedFileReader.s
 
 # target to generate assembly for a file
-base3d/src/CPackedFileReader.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.c.s
-.PHONY : base3d/src/CPackedFileReader.c.s
+base3d/src/CPackedFileReader.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CPackedFileReader.cpp.s
+.PHONY : base3d/src/CPackedFileReader.cpp.s
 
-base3d/src/CRenderer.o: base3d/src/CRenderer.c.o
+base3d/src/CRenderer.o: base3d/src/CRenderer.cpp.o
 
 .PHONY : base3d/src/CRenderer.o
 
 # target to build an object file
-base3d/src/CRenderer.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.c.o
-.PHONY : base3d/src/CRenderer.c.o
+base3d/src/CRenderer.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.cpp.o
+.PHONY : base3d/src/CRenderer.cpp.o
 
-base3d/src/CRenderer.i: base3d/src/CRenderer.c.i
+base3d/src/CRenderer.i: base3d/src/CRenderer.cpp.i
 
 .PHONY : base3d/src/CRenderer.i
 
 # target to preprocess a source file
-base3d/src/CRenderer.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.c.i
-.PHONY : base3d/src/CRenderer.c.i
+base3d/src/CRenderer.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.cpp.i
+.PHONY : base3d/src/CRenderer.cpp.i
 
-base3d/src/CRenderer.s: base3d/src/CRenderer.c.s
+base3d/src/CRenderer.s: base3d/src/CRenderer.cpp.s
 
 .PHONY : base3d/src/CRenderer.s
 
 # target to generate assembly for a file
-base3d/src/CRenderer.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.c.s
-.PHONY : base3d/src/CRenderer.c.s
+base3d/src/CRenderer.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer.cpp.s
+.PHONY : base3d/src/CRenderer.cpp.s
 
-base3d/src/CRenderer_Rasterization.o: base3d/src/CRenderer_Rasterization.c.o
+base3d/src/CRenderer_Rasterization.o: base3d/src/CRenderer_Rasterization.cpp.o
 
 .PHONY : base3d/src/CRenderer_Rasterization.o
 
 # target to build an object file
-base3d/src/CRenderer_Rasterization.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.c.o
-.PHONY : base3d/src/CRenderer_Rasterization.c.o
+base3d/src/CRenderer_Rasterization.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.cpp.o
+.PHONY : base3d/src/CRenderer_Rasterization.cpp.o
 
-base3d/src/CRenderer_Rasterization.i: base3d/src/CRenderer_Rasterization.c.i
+base3d/src/CRenderer_Rasterization.i: base3d/src/CRenderer_Rasterization.cpp.i
 
 .PHONY : base3d/src/CRenderer_Rasterization.i
 
 # target to preprocess a source file
-base3d/src/CRenderer_Rasterization.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.c.i
-.PHONY : base3d/src/CRenderer_Rasterization.c.i
+base3d/src/CRenderer_Rasterization.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.cpp.i
+.PHONY : base3d/src/CRenderer_Rasterization.cpp.i
 
-base3d/src/CRenderer_Rasterization.s: base3d/src/CRenderer_Rasterization.c.s
+base3d/src/CRenderer_Rasterization.s: base3d/src/CRenderer_Rasterization.cpp.s
 
 .PHONY : base3d/src/CRenderer_Rasterization.s
 
 # target to generate assembly for a file
-base3d/src/CRenderer_Rasterization.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.c.s
-.PHONY : base3d/src/CRenderer_Rasterization.c.s
+base3d/src/CRenderer_Rasterization.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/CRenderer_Rasterization.cpp.s
+.PHONY : base3d/src/CRenderer_Rasterization.cpp.s
 
-base3d/src/FixP.o: base3d/src/FixP.c.o
+base3d/src/FixP.o: base3d/src/FixP.cpp.o
 
 .PHONY : base3d/src/FixP.o
 
 # target to build an object file
-base3d/src/FixP.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.c.o
-.PHONY : base3d/src/FixP.c.o
+base3d/src/FixP.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.cpp.o
+.PHONY : base3d/src/FixP.cpp.o
 
-base3d/src/FixP.i: base3d/src/FixP.c.i
+base3d/src/FixP.i: base3d/src/FixP.cpp.i
 
 .PHONY : base3d/src/FixP.i
 
 # target to preprocess a source file
-base3d/src/FixP.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.c.i
-.PHONY : base3d/src/FixP.c.i
+base3d/src/FixP.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.cpp.i
+.PHONY : base3d/src/FixP.cpp.i
 
-base3d/src/FixP.s: base3d/src/FixP.c.s
+base3d/src/FixP.s: base3d/src/FixP.cpp.s
 
 .PHONY : base3d/src/FixP.s
 
 # target to generate assembly for a file
-base3d/src/FixP.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.c.s
-.PHONY : base3d/src/FixP.c.s
+base3d/src/FixP.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/FixP.cpp.s
+.PHONY : base3d/src/FixP.cpp.s
 
-base3d/src/Globals.o: base3d/src/Globals.c.o
+base3d/src/Globals.o: base3d/src/Globals.cpp.o
 
 .PHONY : base3d/src/Globals.o
 
 # target to build an object file
-base3d/src/Globals.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.c.o
-.PHONY : base3d/src/Globals.c.o
+base3d/src/Globals.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.cpp.o
+.PHONY : base3d/src/Globals.cpp.o
 
-base3d/src/Globals.i: base3d/src/Globals.c.i
+base3d/src/Globals.i: base3d/src/Globals.cpp.i
 
 .PHONY : base3d/src/Globals.i
 
 # target to preprocess a source file
-base3d/src/Globals.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.c.i
-.PHONY : base3d/src/Globals.c.i
+base3d/src/Globals.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.cpp.i
+.PHONY : base3d/src/Globals.cpp.i
 
-base3d/src/Globals.s: base3d/src/Globals.c.s
+base3d/src/Globals.s: base3d/src/Globals.cpp.s
 
 .PHONY : base3d/src/Globals.s
 
 # target to generate assembly for a file
-base3d/src/Globals.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.c.s
-.PHONY : base3d/src/Globals.c.s
+base3d/src/Globals.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/Globals.cpp.s
+.PHONY : base3d/src/Globals.cpp.s
 
-base3d/src/LoadBitmap.o: base3d/src/LoadBitmap.c.o
+base3d/src/LoadBitmap.o: base3d/src/LoadBitmap.cpp.o
 
 .PHONY : base3d/src/LoadBitmap.o
 
 # target to build an object file
-base3d/src/LoadBitmap.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.c.o
-.PHONY : base3d/src/LoadBitmap.c.o
+base3d/src/LoadBitmap.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.cpp.o
+.PHONY : base3d/src/LoadBitmap.cpp.o
 
-base3d/src/LoadBitmap.i: base3d/src/LoadBitmap.c.i
+base3d/src/LoadBitmap.i: base3d/src/LoadBitmap.cpp.i
 
 .PHONY : base3d/src/LoadBitmap.i
 
 # target to preprocess a source file
-base3d/src/LoadBitmap.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.c.i
-.PHONY : base3d/src/LoadBitmap.c.i
+base3d/src/LoadBitmap.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.cpp.i
+.PHONY : base3d/src/LoadBitmap.cpp.i
 
-base3d/src/LoadBitmap.s: base3d/src/LoadBitmap.c.s
+base3d/src/LoadBitmap.s: base3d/src/LoadBitmap.cpp.s
 
 .PHONY : base3d/src/LoadBitmap.s
 
 # target to generate assembly for a file
-base3d/src/LoadBitmap.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.c.s
-.PHONY : base3d/src/LoadBitmap.c.s
+base3d/src/LoadBitmap.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/LoadBitmap.cpp.s
+.PHONY : base3d/src/LoadBitmap.cpp.s
 
-base3d/src/SDLVersion/CSDL2Renderer.o: base3d/src/SDLVersion/CSDL2Renderer.c.o
+base3d/src/SDLVersion/CSDL2Renderer.o: base3d/src/SDLVersion/CSDL2Renderer.cpp.o
 
 .PHONY : base3d/src/SDLVersion/CSDL2Renderer.o
 
 # target to build an object file
-base3d/src/SDLVersion/CSDL2Renderer.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.c.o
-.PHONY : base3d/src/SDLVersion/CSDL2Renderer.c.o
+base3d/src/SDLVersion/CSDL2Renderer.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.cpp.o
+.PHONY : base3d/src/SDLVersion/CSDL2Renderer.cpp.o
 
-base3d/src/SDLVersion/CSDL2Renderer.i: base3d/src/SDLVersion/CSDL2Renderer.c.i
+base3d/src/SDLVersion/CSDL2Renderer.i: base3d/src/SDLVersion/CSDL2Renderer.cpp.i
 
 .PHONY : base3d/src/SDLVersion/CSDL2Renderer.i
 
 # target to preprocess a source file
-base3d/src/SDLVersion/CSDL2Renderer.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.c.i
-.PHONY : base3d/src/SDLVersion/CSDL2Renderer.c.i
+base3d/src/SDLVersion/CSDL2Renderer.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.cpp.i
+.PHONY : base3d/src/SDLVersion/CSDL2Renderer.cpp.i
 
-base3d/src/SDLVersion/CSDL2Renderer.s: base3d/src/SDLVersion/CSDL2Renderer.c.s
+base3d/src/SDLVersion/CSDL2Renderer.s: base3d/src/SDLVersion/CSDL2Renderer.cpp.s
 
 .PHONY : base3d/src/SDLVersion/CSDL2Renderer.s
 
 # target to generate assembly for a file
-base3d/src/SDLVersion/CSDL2Renderer.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.c.s
-.PHONY : base3d/src/SDLVersion/CSDL2Renderer.c.s
+base3d/src/SDLVersion/CSDL2Renderer.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/base3d/src/SDLVersion/CSDL2Renderer.cpp.s
+.PHONY : base3d/src/SDLVersion/CSDL2Renderer.cpp.s
 
-menu/src/CreditsScreen.o: menu/src/CreditsScreen.c.o
+menu/src/CreditsScreen.o: menu/src/CreditsScreen.cpp.o
 
 .PHONY : menu/src/CreditsScreen.o
 
 # target to build an object file
-menu/src/CreditsScreen.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.c.o
-.PHONY : menu/src/CreditsScreen.c.o
+menu/src/CreditsScreen.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.cpp.o
+.PHONY : menu/src/CreditsScreen.cpp.o
 
-menu/src/CreditsScreen.i: menu/src/CreditsScreen.c.i
+menu/src/CreditsScreen.i: menu/src/CreditsScreen.cpp.i
 
 .PHONY : menu/src/CreditsScreen.i
 
 # target to preprocess a source file
-menu/src/CreditsScreen.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.c.i
-.PHONY : menu/src/CreditsScreen.c.i
+menu/src/CreditsScreen.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.cpp.i
+.PHONY : menu/src/CreditsScreen.cpp.i
 
-menu/src/CreditsScreen.s: menu/src/CreditsScreen.c.s
+menu/src/CreditsScreen.s: menu/src/CreditsScreen.cpp.s
 
 .PHONY : menu/src/CreditsScreen.s
 
 # target to generate assembly for a file
-menu/src/CreditsScreen.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.c.s
-.PHONY : menu/src/CreditsScreen.c.s
+menu/src/CreditsScreen.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/CreditsScreen.cpp.s
+.PHONY : menu/src/CreditsScreen.cpp.s
 
-menu/src/HelpScreen.o: menu/src/HelpScreen.c.o
+menu/src/Engine.o: menu/src/Engine.cpp.o
+
+.PHONY : menu/src/Engine.o
+
+# target to build an object file
+menu/src/Engine.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Engine.cpp.o
+.PHONY : menu/src/Engine.cpp.o
+
+menu/src/Engine.i: menu/src/Engine.cpp.i
+
+.PHONY : menu/src/Engine.i
+
+# target to preprocess a source file
+menu/src/Engine.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Engine.cpp.i
+.PHONY : menu/src/Engine.cpp.i
+
+menu/src/Engine.s: menu/src/Engine.cpp.s
+
+.PHONY : menu/src/Engine.s
+
+# target to generate assembly for a file
+menu/src/Engine.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Engine.cpp.s
+.PHONY : menu/src/Engine.cpp.s
+
+menu/src/HelpScreen.o: menu/src/HelpScreen.cpp.o
 
 .PHONY : menu/src/HelpScreen.o
 
 # target to build an object file
-menu/src/HelpScreen.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.c.o
-.PHONY : menu/src/HelpScreen.c.o
+menu/src/HelpScreen.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.cpp.o
+.PHONY : menu/src/HelpScreen.cpp.o
 
-menu/src/HelpScreen.i: menu/src/HelpScreen.c.i
+menu/src/HelpScreen.i: menu/src/HelpScreen.cpp.i
 
 .PHONY : menu/src/HelpScreen.i
 
 # target to preprocess a source file
-menu/src/HelpScreen.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.c.i
-.PHONY : menu/src/HelpScreen.c.i
+menu/src/HelpScreen.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.cpp.i
+.PHONY : menu/src/HelpScreen.cpp.i
 
-menu/src/HelpScreen.s: menu/src/HelpScreen.c.s
+menu/src/HelpScreen.s: menu/src/HelpScreen.cpp.s
 
 .PHONY : menu/src/HelpScreen.s
 
 # target to generate assembly for a file
-menu/src/HelpScreen.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.c.s
-.PHONY : menu/src/HelpScreen.c.s
+menu/src/HelpScreen.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/HelpScreen.cpp.s
+.PHONY : menu/src/HelpScreen.cpp.s
 
-menu/src/Interrogation.o: menu/src/Interrogation.c.o
+menu/src/Interrogation.o: menu/src/Interrogation.cpp.o
 
 .PHONY : menu/src/Interrogation.o
 
 # target to build an object file
-menu/src/Interrogation.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.c.o
-.PHONY : menu/src/Interrogation.c.o
+menu/src/Interrogation.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.cpp.o
+.PHONY : menu/src/Interrogation.cpp.o
 
-menu/src/Interrogation.i: menu/src/Interrogation.c.i
+menu/src/Interrogation.i: menu/src/Interrogation.cpp.i
 
 .PHONY : menu/src/Interrogation.i
 
 # target to preprocess a source file
-menu/src/Interrogation.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.c.i
-.PHONY : menu/src/Interrogation.c.i
+menu/src/Interrogation.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.cpp.i
+.PHONY : menu/src/Interrogation.cpp.i
 
-menu/src/Interrogation.s: menu/src/Interrogation.c.s
+menu/src/Interrogation.s: menu/src/Interrogation.cpp.s
 
 .PHONY : menu/src/Interrogation.s
 
 # target to generate assembly for a file
-menu/src/Interrogation.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.c.s
-.PHONY : menu/src/Interrogation.c.s
+menu/src/Interrogation.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Interrogation.cpp.s
+.PHONY : menu/src/Interrogation.cpp.s
 
-menu/src/Main.o: menu/src/Main.c.o
+menu/src/Main.o: menu/src/Main.cpp.o
 
 .PHONY : menu/src/Main.o
 
 # target to build an object file
-menu/src/Main.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.c.o
-.PHONY : menu/src/Main.c.o
+menu/src/Main.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.cpp.o
+.PHONY : menu/src/Main.cpp.o
 
-menu/src/Main.i: menu/src/Main.c.i
+menu/src/Main.i: menu/src/Main.cpp.i
 
 .PHONY : menu/src/Main.i
 
 # target to preprocess a source file
-menu/src/Main.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.c.i
-.PHONY : menu/src/Main.c.i
+menu/src/Main.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.cpp.i
+.PHONY : menu/src/Main.cpp.i
 
-menu/src/Main.s: menu/src/Main.c.s
+menu/src/Main.s: menu/src/Main.cpp.s
 
 .PHONY : menu/src/Main.s
 
 # target to generate assembly for a file
-menu/src/Main.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.c.s
-.PHONY : menu/src/Main.c.s
+menu/src/Main.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/Main.cpp.s
+.PHONY : menu/src/Main.cpp.s
 
-menu/src/MainMenu.o: menu/src/MainMenu.c.o
+menu/src/MainMenu.o: menu/src/MainMenu.cpp.o
 
 .PHONY : menu/src/MainMenu.o
 
 # target to build an object file
-menu/src/MainMenu.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.c.o
-.PHONY : menu/src/MainMenu.c.o
+menu/src/MainMenu.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.cpp.o
+.PHONY : menu/src/MainMenu.cpp.o
 
-menu/src/MainMenu.i: menu/src/MainMenu.c.i
+menu/src/MainMenu.i: menu/src/MainMenu.cpp.i
 
 .PHONY : menu/src/MainMenu.i
 
 # target to preprocess a source file
-menu/src/MainMenu.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.c.i
-.PHONY : menu/src/MainMenu.c.i
+menu/src/MainMenu.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.cpp.i
+.PHONY : menu/src/MainMenu.cpp.i
 
-menu/src/MainMenu.s: menu/src/MainMenu.c.s
+menu/src/MainMenu.s: menu/src/MainMenu.cpp.s
 
 .PHONY : menu/src/MainMenu.s
 
 # target to generate assembly for a file
-menu/src/MainMenu.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.c.s
-.PHONY : menu/src/MainMenu.c.s
+menu/src/MainMenu.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/MainMenu.cpp.s
+.PHONY : menu/src/MainMenu.cpp.s
 
-menu/src/UI.o: menu/src/UI.c.o
+menu/src/UI.o: menu/src/UI.cpp.o
 
 .PHONY : menu/src/UI.o
 
 # target to build an object file
-menu/src/UI.c.o:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.c.o
-.PHONY : menu/src/UI.c.o
+menu/src/UI.cpp.o:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.cpp.o
+.PHONY : menu/src/UI.cpp.o
 
-menu/src/UI.i: menu/src/UI.c.i
+menu/src/UI.i: menu/src/UI.cpp.i
 
 .PHONY : menu/src/UI.i
 
 # target to preprocess a source file
-menu/src/UI.c.i:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.c.i
-.PHONY : menu/src/UI.c.i
+menu/src/UI.cpp.i:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.cpp.i
+.PHONY : menu/src/UI.cpp.i
 
-menu/src/UI.s: menu/src/UI.c.s
+menu/src/UI.s: menu/src/UI.cpp.s
 
 .PHONY : menu/src/UI.s
 
 # target to generate assembly for a file
-menu/src/UI.c.s:
-	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.c.s
-.PHONY : menu/src/UI.c.s
+menu/src/UI.cpp.s:
+	$(MAKE) -f CMakeFiles/blank.dir/build.make CMakeFiles/blank.dir/menu/src/UI.cpp.s
+.PHONY : menu/src/UI.cpp.s
 
 # Help Target
 help:
@@ -507,6 +534,9 @@ help:
 	@echo "... menu/src/CreditsScreen.o"
 	@echo "... menu/src/CreditsScreen.i"
 	@echo "... menu/src/CreditsScreen.s"
+	@echo "... menu/src/Engine.o"
+	@echo "... menu/src/Engine.i"
+	@echo "... menu/src/Engine.s"
 	@echo "... menu/src/HelpScreen.o"
 	@echo "... menu/src/HelpScreen.i"
 	@echo "... menu/src/HelpScreen.s"

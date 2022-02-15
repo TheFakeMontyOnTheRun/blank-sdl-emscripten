@@ -10,9 +10,6 @@
 #include "Engine.h"
 #include "CRenderer.h"
 
-#define mTransparency 199
-
-
 void drawRect(
         const int16_t x,
         const int16_t y,
@@ -21,7 +18,7 @@ void drawRect(
         const uint8_t pixel) {
 
     uint8_t *destination = &framebuffer[0];
-    uint8_t *destinationLineStart = destination + (320 * (y)) + x;
+    uint8_t *destinationLineStart = destination + (640 * (y)) + x;
     int16_t py;
 
     if (pixel == TRANSPARENCY_COLOR) {
@@ -31,12 +28,12 @@ void drawRect(
     memset (destinationLineStart, pixel, dx);
 
     for (py = 0; py < (dy); ++py) {
-        destinationLineStart = destination + (320 * (y + py)) + x;
+        destinationLineStart = destination + (640 * (y + py)) + x;
         *destinationLineStart = pixel;
         destinationLineStart += dx;
         *destinationLineStart = pixel;
     }
-    memset (destination + (320 * (y + dy)) + x, pixel, dx);
+    memset (destination + (640 * (y + dy)) + x, pixel, dx);
 }
 
 void fill(
@@ -45,7 +42,7 @@ void fill(
         const int16_t dx,
         const int16_t dy,
         const uint8_t pixel,
-        const int stipple) {
+        const bool stipple) {
 
     uint8_t *destination = &framebuffer[0];
     int16_t py;
@@ -55,7 +52,7 @@ void fill(
     }
 
     for (py = 0; py < dy; ++py) {
-        uint8_t *destinationLineStart = destination + (320 * (y + py)) + x;
+        uint8_t *destinationLineStart = destination + (640 * (y + py)) + x;
 
         if (!stipple) {
             memset (destinationLineStart, pixel, dx);
@@ -74,7 +71,7 @@ void fill(
 void drawBitmap(const int16_t dx,
                 const int16_t dy,
                 const struct Bitmap *__restrict__ tile,
-                const int transparent) {
+                const bool transparent) {
 
     uint8_t *destination = &framebuffer[0];
     uint8_t *sourceLine = tile->data;
@@ -82,14 +79,14 @@ void drawBitmap(const int16_t dx,
     size_t width = tile->width;
     size_t y;
 
-    if ((dy + height) >= 200) {
-        height = (200 - dy);
+    if ((dy + height) >= 480) {
+        height = (480 - dy);
     }
 
 
     if (transparent) {
         for (y = 0; y < height; ++y) {
-            uint8_t *destinationLineStart = destination + (320 * (dy + y)) + dx;
+            uint8_t *destinationLineStart = destination + (640 * (dy + y)) + dx;
             uint8_t *sourceLineStart = sourceLine + (width * y);
             size_t x;
 
@@ -106,7 +103,7 @@ void drawBitmap(const int16_t dx,
         }
     } else {
         for (y = 0; y < height; ++y) {
-            uint8_t *destinationLineStart = destination + (320 * (dy + y)) + dx;
+            uint8_t *destinationLineStart = destination + (640 * (dy + y)) + dx;
             uint8_t *sourceLineStart = sourceLine + (width * y);
             size_t x;
 
@@ -139,8 +136,8 @@ void drawRepeatBitmap(
     	while (repeatX > 0 ) {
 			repeatX -= tile->width;
 
-			if (px < 320 && py < 200) {
-				drawBitmap(px, py, tile, FALSE);
+			if (px < 640 && py < 480) {
+				drawBitmap(px, py, tile, false);
 			}
 
 			px += tile->width;
@@ -168,7 +165,7 @@ void drawTextAt(const uint16_t x, const uint16_t y, const char *__restrict__ tex
         uint8_t *letter =
                 fontPixelData + (col * 8) + (fontWidth * (line * 8));
 
-        if (text[c] == '\n' || dstX >= 320) {
+        if (text[c] == '\n' || dstX >= 640) {
             dstX = (x - 1) * 8;
             dstY += 8;
             continue;
@@ -182,7 +179,7 @@ void drawTextAt(const uint16_t x, const uint16_t y, const char *__restrict__ tex
         for (srcY = 0; srcY < 8; ++srcY) {
 
             uint8_t *letterSrc = letter + (fontWidth * srcY);
-            uint8_t *letterDst = dstBuffer + dstX + (320 * (dstY + srcY));
+            uint8_t *letterDst = dstBuffer + dstX + (640 * (dstY + srcY));
 
             for (srcX = 0; srcX < 8; ++srcX) {
 

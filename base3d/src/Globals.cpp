@@ -18,7 +18,7 @@ long timeUntilNextState = MENU_ITEM_TIME_TO_BECOME_ACTIVE_MS;
 enum EPresentationState currentPresentationState;
 size_t biggestOption;
 const char *mainText = NULL;
-int isRunning = TRUE;
+bool isRunning = true;
 int dirtyLineY0, dirtyLineY1;
 
 int isBigEndian() {

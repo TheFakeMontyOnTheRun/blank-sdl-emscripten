@@ -111,7 +111,7 @@ void HelpScreen_repaintCallback(void) {
 #else
                  0
 #endif
-                 , FALSE);
+                 , false);
         }
 
         drawTextAt(40 - len - 2, (26 - HelpScreen_optionsCount) + c - 2,

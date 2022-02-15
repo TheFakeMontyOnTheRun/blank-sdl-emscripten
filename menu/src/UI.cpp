@@ -21,10 +21,10 @@
 
 void drawWindow(const int x, const int y, const int dx, const int dy, const char *__restrict__ title) {
 
-    fill((x) * 8, (y) * 8, dx * 8, dy * 8, 0, TRUE);
-    fill((x - 1) * 8, (y - 1) * 8, dx * 8, dy * 8, 15, FALSE);
+    fill((x) * 8, (y) * 8, dx * 8, dy * 8, 0, true);
+    fill((x - 1) * 8, (y - 1) * 8, dx * 8, dy * 8, 15, false);
     drawRect((x - 1) * 8, (y - 1) * 8, dx * 8, dy * 8, 0);
-    fill((x - 1) * 8, (y - 1) * 8, dx * 8, 8, 0, FALSE);
+    fill((x - 1) * 8, (y - 1) * 8, dx * 8, 8, 0, false);
     drawTextAt(x + 1, y, title, 4);
 }
 
@@ -43,10 +43,10 @@ void drawTextWindow(const int x, const int y, const int dx, const int dy, const 
 
 void drawImageWindow(const int x, const int y, const int dx, const int dy, const char *__restrict__ title,
                      const struct Bitmap *__restrict__ content) {
-    fill((x) * 8, (y) * 8, dx * 8, dy * 8, 0, TRUE);
-    fill((x - 1) * 8, (y - 1) * 8, dx * 8, dy * 8, 15, FALSE);
-    drawBitmap((x - 1) * 8, (y) * 8, content, TRUE);
+    fill((x) * 8, (y) * 8, dx * 8, dy * 8, 0, true);
+    fill((x - 1) * 8, (y - 1) * 8, dx * 8, dy * 8, 15, false);
+    drawBitmap((x - 1) * 8, (y) * 8, content, true);
     drawRect((x - 1) * 8, (y - 1) * 8, dx * 8, dy * 8, 0);
-    fill((x - 1) * 8, (y - 1) * 8, dx * 8, 8, 0, FALSE);
+    fill((x - 1) * 8, (y - 1) * 8, dx * 8, 8, 0, false);
     drawTextAt(x + 1, y, title, 4);
 }

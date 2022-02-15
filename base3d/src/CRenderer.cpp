@@ -13,7 +13,7 @@
 #include "CPackedFileReader.h"
 
 struct Bitmap *defaultFont;
-uint8_t framebuffer[320 * 200];
+uint8_t framebuffer[640 * 480];
 
 
 uint32_t palette[256];

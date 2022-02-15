@@ -35,7 +35,7 @@ struct Bitmap *eyesB;
 struct Bitmap *eyesC;
 
 char suspectName[256];
-int noMoreMoves = FALSE;
+int noMoreMoves = false;
 
 extern size_t biggestOption;
 
@@ -112,13 +112,13 @@ void initMaze(const int indexZeroBased) {
             if (!randomStart) {
                 interrogationPosition.x = x;
                 interrogationPosition.y = y;
-                interrogationMap[y][x] = FALSE;
+                interrogationMap[y][x] = false;
             }
 
             if (!randomTarget) {
                 interrogationTargetSpot.x = x;
                 interrogationTargetSpot.y = y;
-                interrogationMap[y][x] = FALSE;
+                interrogationMap[y][x] = false;
             }
 
             ++index;
@@ -134,7 +134,7 @@ int32_t Interrogation_initStateCallback(int32_t tag, void *data) {
     emotionAmount[2] = 20;
     emotionAmount[3] = 20;
 
-    noMoreMoves = FALSE;
+    noMoreMoves = false;
     initMaze(tag - kInterrogate_Sofia);
 
     emotions[0] = loadBitmap("love.img");
@@ -171,50 +171,50 @@ void Interrogation_repaintCallback() {
 
     drawRepeatBitmap(0, 32, 320, 200, currentBackgroundBitmap);
 
-    fill(64 + 8, 8 + 8, 160, 128, 0, TRUE);
-    fill(64, 8, 160, 128, 255, FALSE);
-    drawBitmap(64, 8, character, TRUE);
+    fill(64 + 8, 8 + 8, 160, 128, 0, true);
+    fill(64, 8, 160, 128, 255, false);
+    drawBitmap(64, 8, character, true);
 
     drawRect(64, 8, 160, 128, 0);
-    fill(64, 8, 160, 8, 0, FALSE);
+    fill(64, 8, 160, 8, 0, false);
     drawTextAt(10, 2, suspectName, 255);
 
-    fill(8, 144, 120, 8, 0, FALSE);
-    fill(142, 144, 80, 8, 0, FALSE);
-    fill(236, 144, 64, 8, 0, FALSE);
+    fill(8, 144, 120, 8, 0, false);
+    fill(142, 144, 80, 8, 0, false);
+    fill(236, 144, 64, 8, 0, false);
 
     drawTextAt(3, 19, "Interrogation", 255);
     drawTextAt(20, 19, "Emotions", 255);
     drawTextAt(32, 19, "Stress", 255);
 
-    fill(8 + 8, 144 + 8, 120, 48, 0, TRUE);
-    fill(142 + 8, 144 + 8, 80, 48, 0, TRUE);
-    fill(236 + 8, 144 + 8, 64, 48, 0, TRUE);
+    fill(8 + 8, 144 + 8, 120, 48, 0, true);
+    fill(142 + 8, 144 + 8, 80, 48, 0, true);
+    fill(236 + 8, 144 + 8, 64, 48, 0, true);
 
-    fill(8, 152, 120, 40, 255, FALSE);
-    fill(142, 152, 80, 40, 255, FALSE);
-    fill(236, 152, 64, 40, 255, FALSE);
+    fill(8, 152, 120, 40, 255, false);
+    fill(142, 152, 80, 40, 255, false);
+    fill(236, 152, 64, 40, 255, false);
 
     drawRect(8, 152, 120, 40, 0);
     drawRect(142, 152, 80, 40, 0);
 
     for (c = 0; c < 4; ++c) {
         drawBitmap(142 + 8, (uint16_t) (156 + (c * 8)), emotions[c],
-                   FALSE);
+                   false);
     }
 
     for (c = 0; c < 4; ++c) {
         fill(142 + 20, (uint16_t) (156 + (c * 8)), emotionAmount[c] * 2,
-             8, getPaletteEntry(0xFF999999), FALSE);
+             8, getPaletteEntry(0xFF999999), false);
 
         drawRect(142 + 20, (uint16_t) (156 + (c * 8)),
                  emotionAmount[c] * 2, 8, 0);
     }
 
-    drawBitmap(40, 154, emotions[0], FALSE);
-    drawBitmap(40, 182, emotions[1], FALSE);
-    drawBitmap(88, 154, emotions[2], FALSE);
-    drawBitmap(88, 182, emotions[3], FALSE);
+    drawBitmap(40, 154, emotions[0], false);
+    drawBitmap(40, 182, emotions[1], false);
+    drawBitmap(88, 154, emotions[2], false);
+    drawBitmap(88, 182, emotions[3], false);
 
     for (y = 0; y < kMazeSideSize; ++y) {
         for (x = 0; x < kMazeSideSize; ++x) {
@@ -222,26 +222,26 @@ void Interrogation_repaintCallback() {
             if (!interrogationReveal[y][x]
                 && ((abs(interrogationPosition.x - x) > 1)
                     || (abs(interrogationPosition.y - y) > 1))) {
-                fill(52 + x * 4, 156 + (y * 4), 4, 4, 16, FALSE);
+                fill(52 + x * 4, 156 + (y * 4), 4, 4, 16, false);
                 continue;
             }
 
             if (interrogationTargetSpot.x == x && interrogationTargetSpot.y == y) {
-                fill(52 + x * 4, 156 + (y * 4), 4, 4, 128, FALSE);
+                fill(52 + x * 4, 156 + (y * 4), 4, 4, 128, false);
             } else {
 
 
                 if (interrogationMap[y][x]) {
-                    fill(52 + x * 4, 156 + (y * 4), 4, 4, 100, FALSE);
+                    fill(52 + x * 4, 156 + (y * 4), 4, 4, 100, false);
                 } else {
-                    fill(52 + x * 4, 156 + (y * 4), 4, 4, 255, FALSE);
+                    fill(52 + x * 4, 156 + (y * 4), 4, 4, 255, false);
                 }
             }
 
 
             if (interrogationPosition.x == x && interrogationPosition.y == y) {
                 fill(52 + x * 4, 156 + (y * 4), 4, 4,
-                     (((timeUntilNextState / 100) % 2) == 0) ? 32 : 48, FALSE);
+                     (((timeUntilNextState / 100) % 2) == 0) ? 32 : 48, false);
                 continue;
             }
         }
@@ -260,22 +260,22 @@ void Interrogation_repaintCallback() {
     sideEyeTime = (((timeUntilNextState / 1000) % 2) == 0);
 
     if (distance <= 2 && !blinkTime) {
-        drawBitmap(236, 152, eyesB, TRUE);
+        drawBitmap(236, 152, eyesB, true);
     } else if (timeUntilNextState >= (10000 - 250)) {
-        drawBitmap(236, 152, eyesW, TRUE);
+        drawBitmap(236, 152, eyesW, true);
     } else if (blinkTime) {
-        drawBitmap(236, 152, eyesC, TRUE);
+        drawBitmap(236, 152, eyesC, true);
     } else {
         if (distance > 8) {
             if (sideEyeTime) {
-                drawBitmap(236, 152, eyesL, TRUE);
+                drawBitmap(236, 152, eyesL, true);
             }
 
             if (!sideEyeTime) {
-                drawBitmap(236, 152, eyesR, TRUE);
+                drawBitmap(236, 152, eyesR, true);
             }
         } else {
-            drawBitmap(236, 152, eyesW, TRUE);
+            drawBitmap(236, 152, eyesW, true);
         }
     }
 
@@ -289,7 +289,7 @@ void Interrogation_repaintCallback() {
             uint8_t color = 128;
             const char *text = (noMoreMoves) ? "Failed!" : "GOTCHA!";
             size_t len = strlen(text);
-            fill(0, 64, 320, 8, 0, FALSE);
+            fill(0, 64, 320, 8, 0, false);
             drawTextAt(20 - (len / 2), 9, text, color);
         }
             break;
@@ -300,7 +300,7 @@ void Interrogation_repaintCallback() {
             uint8_t color = 0;
             const char *text = (noMoreMoves) ? "Failed!" : "GOTCHA!";
             size_t len = strlen(text);
-            fill(0, 64, 320, 8, 0, FALSE);
+            fill(0, 64, 320, 8, 0, false);
             drawTextAt(20 - (len / 2), 9, text, color);
         }
         case kAppearing:
@@ -362,7 +362,7 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 
         px = interrogationPosition.x;
         py = interrogationPosition.y;
-        interrogationReveal[py][px] = TRUE;
+        interrogationReveal[py][px] = true;
 
         /* perform checks for early bailing out if no more moves are available */
 
@@ -380,7 +380,7 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
             case kCommandUp:
 
                 if (!emotionAmount[0] || !emotionAmount[2]) {
-                    noMoreMoves = TRUE;
+                    noMoreMoves = true;
                     return -1;
                 }
 
@@ -406,7 +406,7 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
                 break;
             case kCommandDown:
                 if (!emotionAmount[1] || !emotionAmount[3]) {
-                    noMoreMoves = TRUE;
+                    noMoreMoves = true;
                     return -1;
                 }
 
@@ -432,7 +432,7 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
 
             case kCommandLeft:
                 if (!emotionAmount[1] || !emotionAmount[0]) {
-                    noMoreMoves = TRUE;
+                    noMoreMoves = true;
                     return -1;
                 }
 
@@ -457,7 +457,7 @@ int32_t Interrogation_tickCallback(int32_t tag, void *data) {
                 break;
             case kCommandRight:
                 if (!emotionAmount[2] || !emotionAmount[3]) {
-                    noMoreMoves = TRUE;
+                    noMoreMoves = true;
                     return -1;
                 }
 

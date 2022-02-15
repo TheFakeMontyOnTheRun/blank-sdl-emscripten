@@ -98,16 +98,16 @@ void CreditsScreen_repaintCallback(void) {
         return;
     }
 
-    fill(0, (lines + 3) * 8, 320, 8, 0, TRUE);
-    fill(8 + 8, 128 + 8, 64, 64, 0, TRUE);
-    fill(152 + 8, 128 + 8, 64, 64, 0, TRUE);
+    fill(0, (lines + 3) * 8, 320, 8, 0, true);
+    fill(8 + 8, 128 + 8, 64, 64, 0, true);
+    fill(152 + 8, 128 + 8, 64, 64, 0, true);
 
     if (mainText != NULL) {
 
-        fill(0, 0, 320, (lines + 3) * 8, 15, FALSE);
+        fill(0, 0, 320, (lines + 3) * 8, 15, false);
 
         drawRect(0, 0, 320, (lines + 3) * 8, 0);
-        fill(0, 0, 320, 8, 0, FALSE);
+        fill(0, 0, 320, 8, 0, false);
         drawTextAt(2, 1, "Credits", 4);
         drawTextAt(1, 3, mainText,
 #ifdef AGA5BPP
@@ -118,32 +118,32 @@ void CreditsScreen_repaintCallback(void) {
         );
     }
 
-    fill(8, 128, 64, 64, 7, FALSE);
-    drawBitmap(8, 128, monty, TRUE);
+    fill(8, 128, 64, 64, 7, false);
+    drawBitmap(8, 128, monty, true);
     drawRect(8, 128, 64, 64, 0);
 
-    fill(8, 128, 64, 8, 0, FALSE);
+    fill(8, 128, 64, 8, 0, false);
     drawTextAt(3, 17, "Monty", 4);
 
-    fill(152, 128, 64, 64, 7, FALSE);
-    drawBitmap(152, 128, belle, TRUE);
+    fill(152, 128, 64, 64, 7, false);
+    drawBitmap(152, 128, belle, true);
     drawRect(152, 128, 64, 64, 0);
 
-    fill(152, 128, 64, 8, 0, FALSE);
+    fill(152, 128, 64, 8, 0, false);
     drawTextAt(21, 17, "Belle", 4);
 
     fill(320 - (len * 8) - 8 - 16, 200 - optionsHeight - 8 - 16,
-         (len * 8) + 16, optionsHeight + 16, 0, TRUE);
+         (len * 8) + 16, optionsHeight + 16, 0, true);
 
     fill(320 - (len * 8) - 16 - 16, 200 - optionsHeight - 16 - 16,
-         (len * 8) + 16, optionsHeight + 16, 15, FALSE);
+         (len * 8) + 16, optionsHeight + 16, 15, false);
 
     drawRect(320 - (len * 8) - 16 - 16, 200 - optionsHeight - 16 - 16,
              (len * 8) + 16, optionsHeight + 16, 0);
 
     fill((40 - len - 2 - 2) * 8,
          ((26 - CreditsScreen_optionsCount) - 2 - 1 - 2) * 8,
-         (len + 2) * 8, 8, 0, FALSE);
+         (len + 2) * 8, 8, 0, false);
 
     for (c = 0; c < CreditsScreen_optionsCount; ++c) {
 
@@ -161,7 +161,7 @@ void CreditsScreen_repaintCallback(void) {
 #else
                  0
 #endif
-                 , FALSE);
+                 , false);
         }
 
         drawTextAt(40 - len - 2, (26 - CreditsScreen_optionsCount) + c - 2,

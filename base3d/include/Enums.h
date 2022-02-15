@@ -37,17 +37,4 @@ enum EPresentationState {
     kConfirmInputBlink6,
     kFade
 };
-
-enum ESoundDriver {
-    kNoSound, kPcSpeaker, kOpl2Lpt, kAdlib, kTandy, kCovox
-};
-
-#define MENU_SELECTION_CHANGE_SOUND 0
-#define STATE_CHANGE_SOUND 1
-#define INFORMATION_ACQUIRED_SOUND 2
-#define FAILED_TO_GET_INFORMATION_SOUND 3
-#define PLAYER_GOT_DETECTED_SOUND 4
-#define PLAYER_FIRING_GUN 5
-#define ENEMY_FIRING_GUN 6
-#define PLAYER_GET_HURT_SOUND 7
 #endif
