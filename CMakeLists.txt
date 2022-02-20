@@ -16,8 +16,8 @@ include_directories(common/include)
 include_directories(menu/include)
 include_directories(SoundSystem)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DSDLSW -std=c90 -W -Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DSDLSW -std=c++98 -W -Wall")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -DSDLSW -std=c90 -W -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -DSDLSW -std=c++98 -W -Wall")
 
 find_package(SDL2 REQUIRED)
 
