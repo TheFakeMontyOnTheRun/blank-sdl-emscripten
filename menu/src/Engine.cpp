@@ -47,13 +47,13 @@ int countLines() {
 }
 
 void enterState(enum EGameMenuState newState) {
-    
+
     if (unloadStateCallback != NULL) {
         unloadStateCallback();
     }
 
     stateTick = 0;
-    
+
     timeUntilNextState = MENU_ITEM_TIME_TO_BECOME_ACTIVE_MS;
     currentPresentationState = kAppearing;
     currentBackgroundBitmap = NULL;
@@ -83,7 +83,7 @@ void enterState(enum EGameMenuState newState) {
             tickCallback = CreditsScreen_tickCallback;
             unloadStateCallback = CreditsScreen_unloadStateCallback;
             break;
-            
+
         case kInterrogate_Sofia:
             menuStateToReturn = kMainMenu;
             initStateCallback = Interrogation_initStateCallback;
@@ -109,7 +109,7 @@ int menuTick(long delta_time) {
 
     globalTick++;
     stateTick++;
-    
+
     handleSystemEvents();
 
     /* protect against machines too fast for their own good. */
@@ -149,34 +149,24 @@ void mainLoop() {
     handleSystemEvents();
 
     delta_time = 1000;
-    
-#ifdef AMIGA
-#ifdef AGA8BPP
-    delta_time = 50;
-#else
-    delta_time = 50;
-#endif
-#else
-    
-    
+
 #ifdef ANDROID
 	delta_time = 50;
 #endif
 #ifdef __EMSCRIPTEN__
     delta_time = 500;
 #endif
-#endif
 	input = getInput();
 	newState = (EGameMenuState)tickCallback(input, &delta_time);
-    
+
     if (input == kCommandQuit) {
         isRunning = false;
     }
-    
+
     if (newState != currentGameMenuState && newState != -1) {
         enterState(newState);
     }
-    
+
     repaintCallback();
     flipRenderer();
 
