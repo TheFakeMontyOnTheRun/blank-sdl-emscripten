@@ -20,21 +20,23 @@ import java.nio.ByteBuffer
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private var soundPool : SoundPool? = null
+    private var soundPool: SoundPool? = null
     private var presentation: Presentation? = null
     private var sounds = IntArray(8)
-    private var pixels = ByteArray(320 * 240 * 4)
-    val bitmap: Bitmap = Bitmap.createBitmap(320, 240, Bitmap.Config.ARGB_8888)
+    private var pixels = ByteArray(640 * 480 * 4)
+    val bitmap: Bitmap = Bitmap.createBitmap(640, 480, Bitmap.Config.ARGB_8888)
     private var running = false
 
     private fun initAudio() {
         soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            SoundPool.Builder().setAudioAttributes(AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_GAME)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .build()).build()
+            SoundPool.Builder().setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build()
+            ).build()
         } else {
-            SoundPool(5, AudioManager.STREAM_MUSIC, 0 )
+            SoundPool(5, AudioManager.STREAM_MUSIC, 0)
         }
 
         sounds[0] = soundPool!!.load(this, R.raw.menu_move, 1)
@@ -64,12 +66,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null ) {
+        if (savedInstanceState == null) {
             JNIGlue.initAssets(resources.assets)
         }
 
 
-        if  ( (application as MistralApplication).mayEnableSound() ) {
+        if ((application as GameApplication).mayEnableSound()) {
             initAudio()
         } else {
             soundPool = null
@@ -92,12 +94,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         useBestRouteForGameplayPresentation()
 
-        Thread( Runnable {
+        Thread {
             while (running) {
-                Thread.sleep(1000)
-
                 runOnUiThread {
-                    if  ( !(application as MistralApplication).hasPhysicalController() ) {
+                    if (!(application as GameApplication).hasPhysicalController()) {
 
                         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                             llActions.visibility = View.VISIBLE
@@ -131,40 +131,39 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     runOnUiThread { (this@MainActivity).recreate() }
                 }
 
-
+                Thread.sleep(1000)
             }
-        }).start()
+        }.start()
 
-        Thread(Runnable {
+        Thread {
             while (running) {
                 Thread.sleep(75)
                 runOnUiThread { redraw() }
             }
-        }
-        ).start()
+        }.start()
 
         if (soundPool != null) {
-            Thread(Runnable {
+            Thread {
 
                 while (running) {
                     Thread.sleep(10)
                     when (val sound = JNIGlue.getSoundToPlay()) {
-                        0, 1, 2, 3, 4, 5, 6, 7, 8 -> soundPool!!.play(sounds[sound], 1f, 1f, 0, 0, 1f)
+                        0, 1, 2, 3, 4, 5, 6, 7 -> soundPool!!.play(sounds[sound], 1f, 1f, 0, 0, 1f)
                     }
 
                 }
-            }
-            ).start()
+            }.start()
         }
     }
 
     override fun onBackPressed() {
-        if (JNIGlue.isOnMainMenu() != 0 ) {
+        if (JNIGlue.isOnMainMenu() != 0) {
             super.onBackPressed()
         } else {
             JNIGlue.sendCommand('q')
         }
     }
+
     override fun onPause() {
         super.onPause()
         running = false
@@ -192,10 +191,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             KeyEvent.KEYCODE_BUTTON_R1, KeyEvent.KEYCODE_D -> 'm'
 
             KeyEvent.KEYCODE_BUTTON_A, KeyEvent.KEYCODE_Z -> 'z'
-            KeyEvent.KEYCODE_BUTTON_B, KeyEvent.KEYCODE_X-> 'x'
-            KeyEvent.KEYCODE_BUTTON_C, KeyEvent.KEYCODE_BUTTON_Y, KeyEvent.KEYCODE_C-> 'c'
+            KeyEvent.KEYCODE_BUTTON_B, KeyEvent.KEYCODE_X -> 'x'
+            KeyEvent.KEYCODE_BUTTON_C, KeyEvent.KEYCODE_BUTTON_Y, KeyEvent.KEYCODE_C -> 'c'
             KeyEvent.KEYCODE_BUTTON_START, KeyEvent.KEYCODE_BUTTON_X, KeyEvent.KEYCODE_ENTER -> 'q'
-            else -> return super.onKeyUp(keyCode, event )
+            else -> return super.onKeyUp(keyCode, event)
         }
         JNIGlue.sendCommand(toSend)
         return true
@@ -212,8 +211,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnFire -> toSend = 'z'
             R.id.btnAim -> toSend = 'x'
             R.id.btnPick -> toSend = 'c'
-            R.id.btnStrafeLeft-> toSend = 'n'
-            R.id.btnStrafeRight-> toSend = 'm'
+            R.id.btnStrafeLeft -> toSend = 'n'
+            R.id.btnStrafeRight -> toSend = 'm'
         }
         JNIGlue.sendCommand(toSend)
     }

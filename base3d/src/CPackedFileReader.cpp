@@ -6,11 +6,9 @@
 #include <stdint.h>
 #include <unistd.h>
 
-#ifndef ANDROID
-
 #include "Common.h"
 
-#else
+#ifdef ANDROID
 #include <jni.h>
 #include <android/asset_manager.h>
 #include <android/asset_manager_jni.h>

@@ -26,7 +26,7 @@
 #include "CRenderer.h"
 #include "CPackedFileReader.h"
 
-int isInstantApp = FALSE;
+int isInstantApp = false;
 long t0, t1, t2;
 
 void initHW(void);
@@ -37,7 +37,7 @@ void mainLoop(void);
 
 extern int currentGameMenuState;
 
-uint8_t framebufferFinal[320 * 240 * 4];
+uint8_t framebufferFinal[640 * 480 * 4];
 
 AAssetManager *defaultAssetManager = NULL;
 
@@ -84,12 +84,12 @@ void graphicsShutdown(void) {
 void flipRenderer(void) {
     unsigned char *ptr = &framebufferFinal[0];
 
-    memset(ptr, 0, 320 * 240 * 4);
+    memset(ptr, 0, 640 * 480 * 4);
 
-    for (int y = 0; y < 240; ++y) {
-        for (int x = 0; x < 320; ++x) {
+    for (int y = 0; y < 480; ++y) {
+        for (int x = 0; x < 640; ++x) {
 
-            int32_t pixel = palette[framebuffer[(int)(320 * ((200 * y) / 240 )) + x]];
+            int32_t pixel = palette[framebuffer[(int)(640 * y) + x]];
 
             int r = (pixel & 0x000000FF) - 0x38;
             int g = ((pixel & 0x0000FF00) >> 8) - 0x18;
@@ -111,7 +111,7 @@ void flipRenderer(void) {
 
 void clearRenderer(void) {}
 
-JNIEXPORT void JNICALL
+extern "C" JNIEXPORT void JNICALL
 Java_pt_b13h_blank_JNIGlue_initAssets(JNIEnv *env, jclass clazz,
                                                     jobject assetManager) {
 
@@ -126,12 +126,12 @@ Java_pt_b13h_blank_JNIGlue_initAssets(JNIEnv *env, jclass clazz,
 #endif
 }
 
-JNIEXPORT void JNICALL
+extern "C" JNIEXPORT void JNICALL
 Java_pt_b13h_blank_JNIGlue_getPixelsFromNative(JNIEnv *env, jclass clazz,
                                                              jbyteArray array) {
     mainLoop();
-    jbyte *narr = (*env)->GetByteArrayElements(env, array, NULL);
-    memcpy(narr, &framebufferFinal[0], 320 * 240 * 4);
+    jbyte *narr = env->GetByteArrayElements(array, NULL);
+    memcpy(narr, &framebufferFinal[0], 640 * 480 * 4);
 }
 
 int soundToPlay = -1;
@@ -148,19 +148,19 @@ void soundTick() {}
 
 void muteSound() {}
 
-    JNIEXPORT jint JNICALL
+    extern "C" JNIEXPORT jint JNICALL
     Java_pt_b13h_blank_JNIGlue_getSoundToPlay(JNIEnv *env, jclass clazz) {
     int toReturn = soundToPlay;
     soundToPlay = -1;
     return toReturn;
 }
 
-    JNIEXPORT jint JNICALL
+    extern "C" JNIEXPORT jint JNICALL
     Java_pt_b13h_blank_JNIGlue_isOnMainMenu(JNIEnv *env, jclass clazz) {
     return currentGameMenuState == (kMainMenu);
 }
 
-JNIEXPORT void JNICALL
+extern "C" JNIEXPORT void JNICALL
     Java_pt_b13h_blank_JNIGlue_sendCommand(JNIEnv *env, jclass clazz, jchar cmd) {
     switch (cmd) {
         case 'w':

@@ -43,6 +43,7 @@ void shutdownHW() {
 
 extern unsigned long t0, t1, t2;
 
+#ifndef ANDROID
 int main(int argc, char **argv) {
 
     initHW();
@@ -63,3 +64,4 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+#endif

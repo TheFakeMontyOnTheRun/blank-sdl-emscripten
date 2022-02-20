@@ -12,7 +12,7 @@ include_directories(../../../../../common/include)
 include_directories(../../../../../menu/include)
 include_directories(../../../../../SoundSystem)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DSDLSW -std=c90 -DANDROID  -D_BSD_SOURCE")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DSDLSW -std=c++98 -DANDROID  -D_BSD_SOURCE")
 
 
 # Creates and names a library, sets it as either STATIC
@@ -27,21 +27,20 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        ../../../../../menu/src/MainMenu.c
-        ../../../../../menu/src/Interrogation.c
-        ../../../../../menu/src/HelpScreen.c
-        ../../../../../menu/src/Engine.c
-        ../../../../../menu/src/CreditsScreen.c
-        ../../../../../menu/src/Main.c
-        ../../../../../base3d/src/Globals.c
-        ../../../../../base3d/src/LoadBitmap.c
-        ../../../../../base3d/src/CRenderer.c
-        ../../../../../base3d/src/FixP.c
-        ../../../../../base3d/src/CRenderer_Rasterization.c
-        ../../../../../base3d/src/CPackedFileReader.c
-        ../../../../../menu/src/UI.c
-#        ../../../../../SoundSystem/PCMAudio.c
-        native-lib.c)
+        ../../../../../menu/src/MainMenu.cpp
+        ../../../../../menu/src/Interrogation.cpp
+        ../../../../../menu/src/HelpScreen.cpp
+        ../../../../../menu/src/Engine.cpp
+        ../../../../../menu/src/CreditsScreen.cpp
+        ../../../../../base3d/src/Globals.cpp
+        ../../../../../menu/src/Main.cpp
+        ../../../../../base3d/src/LoadBitmap.cpp
+        ../../../../../base3d/src/CRenderer.cpp
+        ../../../../../base3d/src/FixP.cpp
+        ../../../../../base3d/src/CRenderer_Rasterization.cpp
+        ../../../../../base3d/src/CPackedFileReader.cpp
+        ../../../../../menu/src/UI.cpp
+        native-lib.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
