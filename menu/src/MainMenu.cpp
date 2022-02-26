@@ -13,7 +13,7 @@
 
 #if !defined(ANDROID) && !defined(__EMSCRIPTEN__)
 const char *MainMenu_options[4] = {
-        "Agent log in", "Credits", "Help", "Quit"};
+        "Run test", "Credits", "Help", "Quit"};
 
 int32_t MainMenu_nextStateNavigation[4] = {
         kInterrogate_Sofia, kCredits, kHelp,
@@ -58,7 +58,7 @@ int32_t MainMenu_initStateCallback(int32_t tag, void *data) {
             biggestOption = len;
         }
     }
-    
+
     dirtyLineY0 = 0;
     dirtyLineY1 = 200;
 
@@ -66,7 +66,7 @@ int32_t MainMenu_initStateCallback(int32_t tag, void *data) {
 }
 
 void MainMenu_initialPaintCallback() {
-	drawRepeatBitmap(0, 0, 320, 200, currentBackgroundBitmap);
+	drawRepeatBitmap(0, 0, 640, 480, currentBackgroundBitmap);
 
     drawImageWindow(2, 2, 21, 22, "Invisible affairs", logoBitmap);
 }
@@ -127,8 +127,8 @@ void MainMenu_repaintCallback(void) {
                    (26 - kMainMenuOptionsCount) + c - 3,
                    &MainMenu_options[c][0], 4);
     }
-    
-    
+
+
     if (stateTick > 5 ) {
         dirtyLineY0 = (200 - optionsHeight) + (0 * 8) - 24;
         dirtyLineY1 = (200 - optionsHeight) + (kMainMenuOptionsCount * 8) - 24;
