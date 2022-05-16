@@ -31,3 +31,11 @@ game.data
 game.html
 game.html.mem
 game.js
+blank
+blank.cbp
+CMakeCache.txt
+cmake_install.cmake
+.idea
+cmake-build-debug
+CMakeFiles
+packer
