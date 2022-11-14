@@ -2,13 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef __APPLE__
-#include <SDL/sdl.h>
-#else
-
-#include "SDL.h"
-
-#endif
+#include <SDL.h>
 
 SDL_Window *window;
 SDL_Renderer *renderer;
