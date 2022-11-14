@@ -63,10 +63,17 @@ int main(int argc, char **argv) {
 
 	while (keepRunning) {
 		SDL_Rect rect;
+
+		rect.x = rect.y = 0;
+		rect.w = 640;
+		rect.h = 480;
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		SDL_RenderFillRect(renderer, &rect);
+		SDL_RenderPresent(renderer);
+
 		rect.x = rect.y = rect.w = rect.h = 50;
 		SDL_SetRenderDrawColor(renderer, r++, 0, 0, 255);
 		SDL_RenderFillRect(renderer, &rect);
-
 		SDL_RenderPresent(renderer);
 
 		SDL_PollEvent(&event);
