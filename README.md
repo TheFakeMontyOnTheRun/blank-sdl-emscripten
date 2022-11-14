@@ -1,2 +1,4 @@
-# The Mistral Report
+Blank SDL2 project
+==================
 
+*Using CMake*
