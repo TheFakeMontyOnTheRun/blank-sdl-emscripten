@@ -7,19 +7,6 @@
 SDL_Window *window;
 SDL_Renderer *renderer;
 
-void tryPrintingError(const char *reason) {
-	const static size_t kBufferSize = 255;
-	char errorBuffer[kBufferSize];
-
-	fprintf(stderr, "%s\n", reason);
-	fflush(stderr);
-
-	// we might double fault on getting the error message - or can't we?
-	SDL_GetErrorMsg(&errorBuffer[0], kBufferSize);
-	fprintf(stderr, "%s", &errorBuffer[0]);
-	fflush(stderr);
-}
-
 int main(int argc, char **argv) {
 	SDL_Event event;
 	uint8_t r = 0;
@@ -27,7 +14,9 @@ int main(int argc, char **argv) {
 	bool keepRunning = true;
 
 	if (SDL_Init(-1336) != 0) {
-		tryPrintingError("Cannot init SDL!");
+		fprintf(stderr, "Cannot init SDL!\n");
+		fflush(stderr);
+
 		goto cannot_init_sdl;
 	}
 
@@ -44,14 +33,18 @@ int main(int argc, char **argv) {
 	);
 
 	if (!window) {
-		tryPrintingError("Cannot create window!");
+		fprintf(stderr, "Cannot create window!\n");
+		fflush(stderr);
+
 		goto cannot_create_window;
 	}
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
 	if (!renderer) {
-		tryPrintingError("Cannot create renderer!");
+		fprintf(stderr, "Cannot create renderer!\n");
+		fflush(stderr);
+
 		goto cannot_create_renderer;
 	}
 
