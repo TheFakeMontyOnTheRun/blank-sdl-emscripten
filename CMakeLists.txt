@@ -3,7 +3,7 @@ project(blank)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(CXXMAKE_MODULE_PATH ${CXXMAKE_MODULE_PATH} "${CXXMAKE_CURRENT_SOURCE_DIR}/cmake_find")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake_find")
 
 include_directories(
 		${SDL2_INCLUDE_DIR}
