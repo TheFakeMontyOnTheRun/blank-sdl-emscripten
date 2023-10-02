@@ -14,12 +14,27 @@ import android.view.Display
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewManager
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.widget.AppCompatImageButton
 import java.nio.ByteBuffer
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var btnStrafeRight: AppCompatImageButton
+    private lateinit var btnStrafeLeft: AppCompatImageButton
+    private lateinit var btnRight: AppCompatImageButton
+    private lateinit var btnLeft: AppCompatImageButton
+    private lateinit var btnAim: AppCompatImageButton
+    private lateinit var btnPick: AppCompatImageButton
+    private lateinit var btnFire: AppCompatImageButton
+    private lateinit var btnDown: AppCompatImageButton
+    private lateinit var btnUp: AppCompatImageButton
+    private lateinit var llScreenControllers: LinearLayout
+    private lateinit var llDirections: LinearLayout
+    private lateinit var llActions: LinearLayout
+    private lateinit var imageView: ImageView
     private var soundPool: SoundPool? = null
     private var presentation: Presentation? = null
     private var sounds = IntArray(8)
@@ -65,6 +80,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         setContentView(R.layout.activity_main)
+
+        btnStrafeRight = findViewById(R.id.btnStrafeRight)
+        btnStrafeLeft = findViewById(R.id.btnStrafeLeft)
+        btnRight = findViewById(R.id.btnRight)
+        btnLeft = findViewById(R.id.btnLeft)
+        btnAim = findViewById(R.id.btnAim)
+        btnPick = findViewById(R.id.btnPick)
+        btnFire = findViewById(R.id.btnFire)
+        btnDown = findViewById(R.id.btnDown)
+        btnUp = findViewById(R.id.btnUp)
+
+        if (this.findViewById<LinearLayout>(R.id.llScreenControllers) != null) {
+            llScreenControllers = findViewById(R.id.llScreenControllers)
+        }
+
+        if (this.findViewById<LinearLayout>(R.id.llDirections) != null) {
+            llDirections = findViewById(R.id.llDirections)
+        }
+
+        if (this.findViewById<LinearLayout>(R.id.llActions) != null) {
+            llActions = findViewById(R.id.llActions)
+        }
+    
+        imageView = findViewById(R.id.imageView)
+
 
         if (savedInstanceState == null) {
             JNIGlue.initAssets(resources.assets)
